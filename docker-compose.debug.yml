@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  dev_env:
+    image: dev_env
+    build:
+      context: .
+      dockerfile: Dockerfile
