@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t berrij/devenv:$(git log -1 --format=%h) -t berrij/devenv:latest -t berrij/devenv:$(date '+%Y-%m-%d %H:%M:%S') .
+docker build -t berrij/devenv:$(git log -1 --format=%h) -t berrij/devenv:latest -t berrij/devenv:$(date '+%Y%m%d') .
