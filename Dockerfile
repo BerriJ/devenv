@@ -100,9 +100,3 @@ RUN tlmgr install \
     ec \
     cm-super \
     caption
-
-# may need to run xhost local:root 
-# locally to grant the root user access to the local x11
-
-# Run using:
-# docker run -it --rm --net=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
