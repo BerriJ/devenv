@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -t devenv:$(git log -1 --format=%h) -t devenv:latest .
