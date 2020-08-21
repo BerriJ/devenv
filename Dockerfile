@@ -100,4 +100,15 @@ RUN tlmgr install \
     pdflscape \
     ec \
     cm-super \
-    caption
+    caption \
+    # Optional: Package Documentation
+    texdoc \
+    # Optional: Linting
+    ChkTeX \
+    # Optional: Indentation
+    latexindent && \
+    # Additional Perl Modules for Indentation
+    cpan Log::Log4perl <<<yes &&\
+    cpan YAML::Tiny module &&\
+    cpan Log::Dispatch::File &&\
+    cpan File::HomeDir
