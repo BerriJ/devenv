@@ -109,6 +109,6 @@ RUN tlmgr install \
     latexindent && \
     # Additional Perl Modules for Indentation
     cpan Log::Log4perl <<<yes &&\
-    cpan YAML::Tiny module &&\
+    cpan YAML::Tiny &&\
     cpan Log::Dispatch::File &&\
     cpan File::HomeDir
