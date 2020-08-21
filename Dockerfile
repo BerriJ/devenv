@@ -50,6 +50,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
     install2.r -error --ncpus 16 --repos $R_REPOS \
     languageserver \
     tidyverse \
+    forecast \
     reshape2 \
     knitr \
     kableExtra \
