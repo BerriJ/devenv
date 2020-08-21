@@ -2,10 +2,10 @@
 
 SHORTHASH="$(git rev-parse --short HEAD)"
 
-docker tag $IMAGE_NAME $DOCKER_REPO:$SHORTHASH
+# docker tag $IMAGE_NAME $DOCKER_REPO:$SHORTHASH
 docker tag $IMAGE_NAME $DOCKER_REPO:$(date '+%Y%m%d')
 docker tag $IMAGE_NAME $DOCKER_REPO:latest
 
-docker push $DOCKER_REPO:$SHORTHASH
+# docker push $DOCKER_REPO:$SHORTHASH
 docker push $DOCKER_REPO:$(date '+%Y%m%d')
 docker push $DOCKER_REPO:latest
