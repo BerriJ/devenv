@@ -11,10 +11,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Ubuntu Setup
 RUN apt-get -y update &&\
-    apt-get -y install \
+    apt-get -y --no-install-recommends install\
     software-properties-common \
     wget \
     git \
+    # Dirmngr is needed to add apt-keys
+    dirmngr \
+    gnupg-agent \
     locales \
     # Python and pip
     python3-pip \
@@ -28,13 +31,15 @@ RUN apt-get -y update &&\
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
     E298A3A825C0D65DFD57CBB651716619E084DAB9 &&\
     add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' &&\
-    apt-get -y install r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
+    apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
     r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}* &&\
     # Alternative r console
     pip3 install -U radian &&\
     locale-gen en_US.UTF-8 &&\
     export LC_ALL=en_US.UTF-8 &&\
-    export LANG=en_US.UTF-8
+    export LANG=en_US.UTF-8 && \
+    # Cleanup apt cache
+    rm -rf /var/lib/apt/lists/*
 
 # Install Python packages
 RUN pip3 install -U \
