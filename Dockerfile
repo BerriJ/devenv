@@ -42,7 +42,7 @@ RUN apt-get -y update &&\
     rm -rf /var/lib/apt/lists/*
 
 # Install Python packages
-RUN pip3 install -U \
+RUN pip3 install -U --no-cache-dir\
     numpy \
     pandas \
     scipy \
@@ -59,7 +59,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
     # install some dependencies of r packages
     apt-get -y install curl libcurl4-openssl-dev openssl libssl-dev libxml2-dev &&\
     # install alternative r console
-    pip3 install -U radian && \
+    pip3 install -U --no-cache-dir radian && \
     # Use littler installation scripts
     Rscript -e "install.packages(c('littler', 'docopt'), repos= '$R_REPOS')" &&\
     Rscript -e "options(repos = c(REPO_NAME = '$R_REPOS'))" &&\
