@@ -1,5 +1,7 @@
 FROM ubuntu:focal
 
+SHELL ["/bin/bash", "-c"]
+
 ENV R_VERSION 4.0.2
 ENV R_REPOS https://packagemanager.rstudio.com/all/__linux__/focal/311
 ENV DISPLAY :0
@@ -104,11 +106,12 @@ RUN tlmgr install \
     # Optional: Package Documentation
     texdoc \
     # Optional: Linting
-    ChkTeX \
+    chktex \
     # Optional: Indentation
     latexindent && \
     # Additional Perl Modules for Indentation
-    cpan Log::Log4perl <<<yes &&\
-    cpan YAML::Tiny &&\
-    cpan Log::Dispatch::File &&\
-    cpan File::HomeDir
+    cpan install Log::Log4perl <<<yes \
+    install YAML::Tiny \
+    install YAML::Tiny \
+    install Log::Dispatch::File \
+    install File::HomeDir
