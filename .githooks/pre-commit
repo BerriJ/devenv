@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sort -o package_lists/r_packages.txt package_lists/r_packages.txt
+sort -o package_lists/python_packages.txt package_lists/python_packages.txt
+sort -o package_lists/latex_packages.txt package_lists/latex_packages.txt
