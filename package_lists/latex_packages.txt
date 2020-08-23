@@ -1,0 +1,31 @@
+adjustbox
+bbold
+beamer
+booktabs
+caption
+chktex # Linting
+cm-super
+collectbox
+collection-fontsextra
+contour
+currfile
+ec
+enumitem
+eso-pic
+filehook
+filemod
+fontspec
+gincltex
+latexindent # Indentation
+latexmk
+mathtools
+multirow
+pdflscape
+pdfpages
+pgfplots
+relsize
+scalerel
+standalone
+svn-prov
+texdoc # Package Documentation
+xkeyval

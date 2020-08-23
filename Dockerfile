@@ -9,6 +9,8 @@ ENV TZ Europe/Germany
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+COPY package_lists /package_lists
+
 # Ubuntu Setup
 RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install\
@@ -43,12 +45,7 @@ RUN apt-get -y update &&\
 
 # Install Python packages
 RUN pip3 install -U --no-cache-dir\
-    numpy \
-    pandas \
-    scipy \
-    numdifftools \
-    properscoring \
-    ipykernel
+    $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
 # R Setup
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
@@ -68,15 +65,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
     ln -s /usr/local/lib/R/site-library/littler/bin/r /usr/local/bin/r &&\
     # install r packages
     install2.r -error --ncpus 16 --repos $R_REPOS \
-    languageserver \
-    tidyverse \
-    forecast \
-    reshape2 \
-    knitr \
-    kableExtra \
-    gamlss.dist \
-    cowplot \
-    data.table
+    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
 
 # Install Latex
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz; \
@@ -85,50 +74,17 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz; \
     echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile; \
     /install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile; \
     rm -r /install-tl-unx; \
-    rm install-tl-unx.tar.gz
-
-# Set Latex Path
-ENV PATH="/usr/local/texlive/2020/bin/x86_64-linux:${PATH}"
-
-# Install latex packages
-RUN tlmgr install \
-    collection-fontsextra \
-    latexmk \
-    beamer \
-    standalone \
-    xkeyval \
-    currfile \
-    filehook \
-    filemod \
-    multirow \
-    bbold \
-    mathtools \
-    eso-pic \
-    enumitem \
-    relsize \
-    pgfplots \
-    pdfpages \
-    scalerel \
-    contour \
-    gincltex \
-    svn-prov \
-    adjustbox \
-    collectbox \
-    fontspec \
-    booktabs \
-    pdflscape \
-    ec \
-    cm-super \
-    caption \
-    # Optional: Package Documentation
-    texdoc \
-    # Optional: Linting
-    chktex \
-    # Optional: Indentation
-    latexindent && \
+    rm install-tl-unx.tar.gz &&\
     # Additional Perl Modules for Indentation
     cpan install Log::Log4perl <<<yes \
     install YAML::Tiny \
     install YAML::Tiny \
     install Log::Dispatch::File \
     install File::HomeDir
+
+# Set Latex Path
+ENV PATH="/usr/local/texlive/2020/bin/x86_64-linux:${PATH}"
+
+# Install latex packages
+RUN tlmgr install \
+    $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')

@@ -1,0 +1,6 @@
+ipykernel
+numdifftools
+numpy
+pandas
+properscoring
+scipy
