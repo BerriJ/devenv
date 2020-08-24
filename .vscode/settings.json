@@ -1,0 +1,8 @@
+{
+    "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#666666",
+        "statusBar.foreground": "#eeeeee",
+        "statusBarItem.hoverBackground": "#4b4b4b"
+    }
+}

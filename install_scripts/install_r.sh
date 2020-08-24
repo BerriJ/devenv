@@ -22,6 +22,7 @@ E298A3A825C0D65DFD57CBB651716619E084DAB9
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
 r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}*
+rm -rf /var/lib/apt/lists/*
 
 # Use littler installation scripts
 Rscript -e "install.packages(c('littler', 'docopt'), repos= '$R_REPOS')"

@@ -4,8 +4,7 @@
 apt-get update
 apt-get install -y --no-install-recommends \
 wget \
-gcc \
-libc6-dev
+build-essential
 rm -rf /var/lib/apt/lists/*
 
 # Install Latex
