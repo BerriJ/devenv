@@ -17,6 +17,7 @@ RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install\
     software-properties-common \
     git \
+    ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     export LC_ALL=en_US.UTF-8 &&\

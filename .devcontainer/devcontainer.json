@@ -15,7 +15,9 @@
     // current workspace. Uncomment or edit as you like.
     "mounts": [
         // "source=${localEnv:HOME}${localEnv:USERPROFILE}/git,target=/workspaces,type=bind,consistency=cached",
-        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        // Mount ssh keys into container
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
     ],
     // Extensions will get installed automatically
     "extensions": [
