@@ -7,7 +7,9 @@
 		"github.github-vscode-theme",
 		"pkief.material-icon-theme",
 		"ms-vscode-remote.remote-containers",
-		"gruntfuggly.todo-tree"
+		"gruntfuggly.todo-tree",
+		"mhutchie.git-graph",
+		"l13rary.l13-projects"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
