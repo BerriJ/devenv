@@ -16,7 +16,6 @@ COPY install_scripts /install_scripts
 RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install\
     software-properties-common \
-    wget \
     git \
     locales &&\
     locale-gen en_US.UTF-8 &&\
@@ -25,7 +24,7 @@ RUN apt-get -y update &&\
     # Cleanup apt cache
     rm -rf /var/lib/apt/lists/*
 
-# Python setup
+# Install Python
 RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install python3-pip && \
     # Cleanup apt cache
@@ -35,7 +34,7 @@ RUN apt-get -y update &&\
 RUN pip3 install -U --no-cache-dir\
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
-# R Setup
+# Install R
 RUN chmod +x /install_scripts/install_r.sh &&\
     /install_scripts/install_r.sh
 
@@ -44,20 +43,8 @@ RUN install2.r -error --ncpus 16 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
 
 # Install Latex
-RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz; \
-    mkdir /install-tl-unx; \
-    tar -xvf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1; \
-    echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile; \
-    echo "TEXDIR /usr/local/texlive" >> /install-tl-unx/texlive.profile; \
-    /install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile; \
-    rm -r /install-tl-unx; \
-    rm install-tl-unx.tar.gz &&\
-    # Additional Perl Modules for Indentation
-    cpan install Log::Log4perl <<<yes \
-    install YAML::Tiny \
-    install YAML::Tiny \
-    install Log::Dispatch::File \
-    install File::HomeDir
+RUN chmod +x /install_scripts/install_latex.sh &&\
+    /install_scripts/install_latex.sh
 
 # Set Latex Path
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
