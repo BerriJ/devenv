@@ -5,6 +5,7 @@
     "initializeCommand": "xhost local:root",
     // Arguments to docker run so container can use local x11
     "runArgs": [
+        "--rm",
         "--net",
         "host",
         "-e",
