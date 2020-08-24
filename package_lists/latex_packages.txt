@@ -1,13 +1,18 @@
 adjustbox
 bbold
 beamer
+biber
+biblatex
+bigfoot
 booktabs
+breqn
 caption
 chktex # Linting
 cm-super
 collectbox
 collection-fontsextra
 contour
+csquotes
 currfile
 ec
 enumitem
@@ -16,6 +21,7 @@ filehook
 filemod
 fontspec
 gincltex
+koma-script
 latexindent # Indentation
 latexmk
 mathtools
@@ -23,9 +29,16 @@ multirow
 pdflscape
 pdfpages
 pgfplots
+preprint
 relsize
 scalerel
+siunitx
 standalone
 svn-prov
+tabu
+tabulary
 texdoc # Package Documentation
+#! To check which packages belong to an .sty file: tlmgr search --global --file "authblk.sty"
+varwidth
 xkeyval
+xstring
