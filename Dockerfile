@@ -14,7 +14,7 @@ COPY install_scripts /install_scripts
 
 # Ubuntu Setup
 RUN apt-get -y update &&\
-    apt-get -y --no-install-recommends install\
+    apt-get -y --no-install-recommends install \
     software-properties-common \
     git \
     ssh-client \
@@ -54,3 +54,10 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 # Install latex packages
 RUN tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')
+
+# Install zsh + oh my zsh
+RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+    -t agnoster
+
+# Set the default shell to zsh rather than bash
+ENTRYPOINT [ "/bin/zsh" ]
