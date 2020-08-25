@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Push branch tag
+docker push $DOCKER_REPO:$SOURCE_BRANCH
+
+# Push date tag for builds on master branch
+if [ "$SOURCE_BRANCH" = "master" ]
+then
+    docker tag $DOCKER_REPO $DOCKER_REPO:"master_$(date '+%Y_%m_%d')"
+fi

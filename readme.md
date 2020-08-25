@@ -29,7 +29,7 @@ locally to grant access to the local x11 display server. This is necessary for R
 
 # Run using:
 
-docker run -it --rm --network=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
+    docker run -it --rm --network=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
 
 Explanation:
 
