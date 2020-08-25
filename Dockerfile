@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 ENV R_VERSION 4.0.2
 ENV R_REPOS https://packagemanager.rstudio.com/all/__linux__/focal/311
 ENV DISPLAY :0
-ENV TZ Europe/Germany
+ENV TZ Europe/Berlin
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -21,7 +21,8 @@ RUN apt-get -y update &&\
     locales &&\
     locale-gen en_US.UTF-8 &&\
     export LC_ALL=en_US.UTF-8 &&\
-    export LANG=en_US.UTF-8 && \
+    export LANG=en_US.UTF-8 &&\
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&\
     # Cleanup apt cache
     rm -rf /var/lib/apt/lists/*
 
