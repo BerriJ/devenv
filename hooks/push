@@ -3,7 +3,7 @@
 # Push date tag for builds on master branch
 if [ "$SOURCE_BRANCH" = "master" ]
 then
-    docker tag $DOCKER_REPO $DOCKER_REPO:"master_$(date '+%Y_%m_%d')"
+    docker push $DOCKER_REPO:"master_$(date '+%Y_%m_%d')"
 fi
 
 # Push branch tag
