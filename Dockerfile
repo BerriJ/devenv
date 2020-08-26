@@ -17,6 +17,7 @@ RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install \
     software-properties-common \
     git \
+    zsh \
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
@@ -55,9 +56,10 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 RUN tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')
 
-# Install zsh + oh my zsh
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
-    -t agnoster
-
 # Set the default shell to zsh rather than bash
+RUN mkdir -p "$HOME/.zsh" &&\
+    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+
+COPY .misc/.zshrc /root/.
+
 ENTRYPOINT [ "/bin/zsh" ]

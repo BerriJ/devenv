@@ -1,6 +1,6 @@
 {
     "name": "devenv",
-    "image": "berrij/devenv:latest",
+    "image": "berrij/devenv:master",
     // Grant xhost access to root user in order to start x11 devices (r plots)
     "initializeCommand": "docker pull berrij/devenv:latest; xhost local:root",
     // Arguments to docker run so container can use local x11
@@ -58,7 +58,9 @@
         "latex-workshop.intellisense.unimathsymbols.enabled": true,
         // Format code as you type
         "editor.formatOnPaste": true,
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        // Use zsh
+        "terminal.integrated.shell.linux": "/bin/zsh"
         
     }
 }
