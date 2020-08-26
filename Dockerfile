@@ -18,6 +18,7 @@ RUN apt-get -y update &&\
     software-properties-common \
     git \
     zsh \
+    gnupg2 \
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\

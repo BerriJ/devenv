@@ -14,10 +14,14 @@
     // The first line mounts $HOME/USER/git into /workspaces together with the
     // current workspace. Uncomment or edit as you like.
     "mounts": [
-        // "source=${localEnv:HOME}${localEnv:USERPROFILE}/git,target=/workspaces,type=bind,consistency=cached",
-        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        // Mount git folder into /workspaces - vscode will also mount the current workspace there
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/git,target=/workspaces,type=bind,consistency=cached",
+        // Mount x11 into container -> to display R/Python graphics devices locally
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
         // Mount ssh keys into container
-        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+        // "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+        // Mount gpg keys into container
+        // "source=${localEnv:HOME}/.gnupg,target=/root/.gnupg,type=bind,consistency=cached"
     ],
     // Extensions will get installed automatically
     "extensions": [
@@ -61,6 +65,6 @@
         "editor.formatOnType": true,
         // Use zsh
         "terminal.integrated.shell.linux": "/bin/zsh"
-        
-    }
+    },
+    "postCreateCommand": "git config --global commit.gpgsign true"
 }
