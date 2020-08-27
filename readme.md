@@ -1,25 +1,38 @@
-# Docker Container to code in R, Python and Latex
+# VS Code Devcontainer and Docker Image for Coding in R, Python, and Latex
 
-# Contains
+## Introduction
+
+This Ubuntu based docker image intends to deliver a fully isolated dev environment for Python, R and Latex. Extend it as needed by adding or removing components.
+
+It's intended that you use this image with a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers). VS Code will automatically install all required extensions for code formatting, linting, execution and debugging.
+
+## Contents
 
 - R 4.X.X
 - Texlive 2020.X
 - Python 3.8.X
 
-# Recommended Setup using VS-Code
+# Setup using VS-Code
+
+## System requirements
 
 - Install [Git](https://git-scm.com/downloads)
 - Install [VS-Code](https://code.visualstudio.com/)
 - Install [Docker Desktop](https://www.docker.com/get-started)
-- Run `git clone https://github.com/BerriJ/devenv.git`
-- Run `cd devenv && cd code` and install the recommended extensions
-- VS Code should ask you if you want to reopen the workspace in a container.
 
-# Options
+## Getting Started
 
-This image is easily expandible using the dockerfile. Just add R/Python/Latex packages or change version numbers. Also note that his image uses RSPM as R repository. RSPM provides Linux binaries for many packages and it is frozen. This ensures that installing R Packages always results in the same package version.
+- [Fork the berrij/devenv github repository](https://github.com/BerriJ/devenv/fork).
+- Clone the forked repository.
+- Open the repository inside VS Code and install the recommended extensions.
+- VS Code should ask you if you want to reopen the workspace in a container. It will automatically download the latest master build, install extensions, and mount your current workspace.
 
-# Usage without VS-Code:
+## SSH and GPG Keys
+
+Look [here](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) on how to forward your lokal keys into the container.
+
+
+# Without VS-Code:
 
 You may need to run:
 
@@ -27,11 +40,11 @@ You may need to run:
 
 locally to grant access to the local x11 display server. This is necessary for R graphics devices to work.
 
-# Run using:
+## Run using:
 
     docker run -it --rm --network=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
 
-Explanation:
+## Explanation:
 
     -it             
     # Interactive Mode, launches a shell
@@ -47,3 +60,7 @@ Explanation:
     
     -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
     # Mounts the local .x11 server into the container
+
+# Issues
+
+If you encounter issues or you want to propose a feature feel free to open an issue on [GitHub](https://github.com/BerriJ/devenv). 
