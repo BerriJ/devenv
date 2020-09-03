@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Set branch tag
-docker tag $DOCKER_REPO $DOCKER_REPO:$SOURCE_BRANCH
-
-# Set date tag for builds on master branch
+# Set date and latest tag for builds on master branch
 if [ "$SOURCE_BRANCH" = "master" ]
 then
-    docker tag $DOCKER_REPO $DOCKER_REPO:"master_$(date '+%Y_%m_%d')"
+    docker tag $DOCKER_REPO $DOCKER_REPO:latest
+    docker tag $DOCKER_REPO $DOCKER_REPO:"$(date '+%Y_%m_%d')"
+fi
+
+# Set branch tag for builds on dev branch
+if [ "$SOURCE_BRANCH" = "dev" ]
+then
+    docker tag $DOCKER_REPO $DOCKER_REPO:$SOURCE_BRANCH
 fi
