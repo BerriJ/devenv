@@ -1,6 +1,7 @@
 abstract
 acronym
 adjustbox
+babel-german
 bbold
 beamer
 biber
@@ -10,38 +11,55 @@ booktabs
 breqn
 caption
 chktex # Linting
+cleveref
 cm-super
 collectbox
 collection-fontsextra
 contour
 csquotes
 currfile
+datatool
 ec
 enumitem
 eso-pic
 eurosym
 filehook
 filemod
+float
 fontspec
 gincltex
+glossaries
+glossaries-english
+glossaries-extra
+hyphen-german
 koma-script
 latexindent # Indentation
 latexmk
 mathtools
+mfirstuc
 multirow
+nth
 pdflscape
 pdfpages
 pgfplots
 preprint
 relsize
 scalerel
+setspace
 siunitx
 standalone
 svn-prov
 tabu
 tabulary
 texdoc # Package Documentation
+textcase
+textpos
+thumbpdf
 #! To check which packages belong to an .sty file: tlmgr search --global --file "authblk.sty"
+tracklang
 varwidth
+was
+xfor
 xkeyval
+xpatch
 xstring
