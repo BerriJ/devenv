@@ -1,15 +1,17 @@
 #!/bin/bash
 
+# Dev branch is deployed using gh actions
 # Push branch tag for builds on dev branch
-if [ "$SOURCE_BRANCH" = "dev" ]
-then
-    docker push $DOCKER_REPO:$SOURCE_BRANCH
-fi
+# if [ "$SOURCE_BRANCH" = "dev" ]
+# then
+#     docker push $DOCKER_REPO:$SOURCE_BRANCH
+# fi
 
 
 # Push date and latest tag for builds on master branch
 if [ "$SOURCE_BRANCH" = "master" ]
 then
     docker push $DOCKER_REPO:"$(date '+%Y_%m_%d')"
-    docker push $DOCKER_REPO:latest
+    # latest tag is deployed using gh actions
+    # docker push $DOCKER_REPO:latest
 fi

@@ -2,7 +2,7 @@ name: Deploy Dev GH
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
+    # Publish `dev` as Docker `dev` image.
     branches:
       - dev
 
