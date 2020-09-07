@@ -49,7 +49,7 @@
         "r.rterm.linux": "/usr/local/bin/radian",
         "r.bracketedPaste": true,
         // Latex
-        "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+        // "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
         "latex-workshop.view.pdf.viewer": "tab",
         "latex-workshop.chktex.enabled": true,
         "latex-workshop.chktex.run": "onType",
