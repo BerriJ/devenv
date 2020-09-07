@@ -42,9 +42,13 @@ RUN pip3 install -U --no-cache-dir\
 RUN chmod +x /install_scripts/install_r.sh &&\
     /install_scripts/install_r.sh
 
-# R packages
+# R packages on CRAN / RSPM
 RUN install2.r -error --ncpus 16 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
+
+# R packages on Github
+RUN installGithub.r \
+    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
 
 # Install Latex
 RUN chmod +x /install_scripts/install_latex.sh &&\
