@@ -61,6 +61,20 @@ locally to grant access to the local x11 display server. This is necessary for R
     -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
     # Mounts the local .x11 server into the container
 
+# Remove Old Docker Images
+
+You likely want to add a cronjob to delete old docker images and containers. You can do so the following way:
+
+Edit your crontab with:
+
+    crontab -e
+
+Then add the following line:
+
+    * */6 * * * /usr/bin/docker system prune -a --force --filter "until=240h"
+
+This will remove all unused images not just dangling ones as long as they are older than 10 days.
+
 # Issues
 
 If you encounter issues or you want to propose a feature feel free to open an issue on [GitHub](https://github.com/BerriJ/devenv). 
