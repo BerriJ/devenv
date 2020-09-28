@@ -66,5 +66,6 @@ RUN mkdir -p "$HOME/.zsh" &&\
     git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 
 COPY .misc/.zshrc /root/.
+COPY .misc/.Rprofile /root/.
 
 ENTRYPOINT [ "/bin/zsh" ]

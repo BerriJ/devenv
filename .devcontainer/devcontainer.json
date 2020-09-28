@@ -42,12 +42,13 @@
     // Important for radian and latex
     "settings": {
         // Python
-        "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
+        // "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
         "python.dataScience.interactiveWindowMode": "perFile",
         "python.dataScience.sendSelectionToInteractiveWindow": true,
         // R
         "r.rterm.linux": "/usr/local/bin/radian",
         "r.bracketedPaste": true,
+        "r.sessionWatcher": true,
         // Latex
         // "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
         "latex-workshop.view.pdf.viewer": "tab",
@@ -59,6 +60,8 @@
         // Format code as you type
         "editor.formatOnPaste": true,
         "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "modifications",
         // Use zsh
         "terminal.integrated.shell.linux": "/bin/zsh"
     },
