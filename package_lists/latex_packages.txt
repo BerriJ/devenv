@@ -2,6 +2,7 @@ abstract
 acronym
 adjustbox
 babel-german
+babel-german
 bbold
 beamer
 biber
@@ -27,6 +28,7 @@ filehook
 filemod
 float
 fontspec
+footmisc
 gincltex
 glossaries
 glossaries-english
@@ -37,6 +39,7 @@ latexindent # Indentation
 latexmk
 mathtools
 mfirstuc
+moderncv
 multirow
 nth
 pdflscape
