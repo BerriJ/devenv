@@ -16,3 +16,6 @@ RcppArmadillo
 RcppParallel
 reshape2
 tidyverse
+stargazer
+anytime
+pander
