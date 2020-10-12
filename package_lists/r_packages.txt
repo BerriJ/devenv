@@ -10,6 +10,7 @@ kableExtra
 knitr
 languageserver
 microbenchmark
+opera
 pander
 profvis
 randomForest
@@ -19,4 +20,3 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
-opera
