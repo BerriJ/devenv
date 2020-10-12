@@ -19,3 +19,4 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
+opera
