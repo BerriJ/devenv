@@ -1,3 +1,4 @@
+anytime
 conflicted
 cowplot
 data.table
@@ -9,10 +10,12 @@ kableExtra
 knitr
 languageserver
 microbenchmark
+pander
 profvis
 randomForest
 Rcpp
 RcppArmadillo
 RcppParallel
 reshape2
+stargazer
 tidyverse
