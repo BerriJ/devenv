@@ -13,6 +13,7 @@ microbenchmark
 opera
 pander
 profvis
+quantreg
 randomForest
 Rcpp
 RcppArmadillo
@@ -20,4 +21,3 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
-quantreg
