@@ -20,3 +20,4 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
+quantreg
