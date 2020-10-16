@@ -66,3 +66,7 @@ xfor
 xkeyval
 xpatch
 xstring
+tcolorbox
+environ
+listings
+soul
