@@ -7,6 +7,7 @@ curl \
 dirmngr \
 gnupg-agent \
 fontconfig \
+pandoc \
 perl \
 python3-pip \
 wget \
