@@ -1,6 +1,7 @@
 abstract
 acronym
 adjustbox
+appendixnumberbeamer
 babel-german
 babel-german
 bbold
@@ -70,4 +71,3 @@ xfor
 xkeyval
 xpatch
 xstring
-appendixnumberbeamer
