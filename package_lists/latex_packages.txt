@@ -70,3 +70,4 @@ xfor
 xkeyval
 xpatch
 xstring
+appendixnumberbeamer
