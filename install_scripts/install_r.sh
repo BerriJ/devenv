@@ -14,6 +14,9 @@ wget \
 libcurl4-openssl-dev \
 openssl \
 libssl-dev \
+libmagick++-dev \
+libpoppler-cpp-dev \
+netbase \
 libxml2-dev &&\
 rm -rf /var/lib/apt/lists/*
 

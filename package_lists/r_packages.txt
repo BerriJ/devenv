@@ -21,3 +21,5 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
+magick
+pdftools
