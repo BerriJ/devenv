@@ -49,6 +49,7 @@ pdflscape
 pdfpages
 pgfplots
 preprint
+preview
 relsize
 scalerel
 setspace
@@ -71,4 +72,3 @@ xfor
 xkeyval
 xpatch
 xstring
-preview

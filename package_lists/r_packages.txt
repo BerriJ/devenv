@@ -9,9 +9,11 @@ ggfortify
 kableExtra
 knitr
 languageserver
+magick
 microbenchmark
 opera
 pander
+pdftools
 profvis
 quantreg
 randomForest
@@ -21,5 +23,3 @@ RcppParallel
 reshape2
 stargazer
 tidyverse
-magick
-pdftools
