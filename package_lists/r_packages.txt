@@ -11,7 +11,6 @@ knitr
 languageserver
 magick
 microbenchmark
-pander
 opera
 pander
 pdftools
