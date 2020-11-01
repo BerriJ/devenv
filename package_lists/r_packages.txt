@@ -11,6 +11,7 @@ knitr
 languageserver
 microbenchmark
 pander
+opera
 profvis
 randomForest
 Rcpp
