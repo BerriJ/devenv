@@ -1,6 +1,7 @@
 abstract
 acronym
 adjustbox
+appendixnumberbeamer
 babel-german
 babel-german
 bbold
@@ -22,6 +23,7 @@ currfile
 datatool
 ec
 enumitem
+environ
 eso-pic
 eurosym
 filehook
@@ -37,6 +39,7 @@ hyphen-german
 koma-script
 latexindent # Indentation
 latexmk
+listings
 mathtools
 mfirstuc
 moderncv
@@ -46,14 +49,17 @@ pdflscape
 pdfpages
 pgfplots
 preprint
+preview
 relsize
 scalerel
 setspace
 siunitx
+soul
 standalone
 svn-prov
 tabu
 tabulary
+tcolorbox
 texdoc # Package Documentation
 textcase
 textpos

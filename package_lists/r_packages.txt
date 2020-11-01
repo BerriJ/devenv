@@ -9,10 +9,14 @@ ggfortify
 kableExtra
 knitr
 languageserver
+magick
 microbenchmark
 pander
 opera
+pander
+pdftools
 profvis
+quantreg
 randomForest
 Rcpp
 RcppArmadillo

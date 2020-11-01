@@ -35,6 +35,8 @@
         "npxms.hide-gitignored",
         // Markdown
         "yzhang.markdown-all-in-one",
+        // Preview HTML
+        "daiyy.quick-html-previewer",
         // Make fancy screenshots
         "pnp.polacode",
     ],
