@@ -75,3 +75,5 @@ xfor
 xkeyval
 xpatch
 xstring
+algorithms
+algorithmicx
