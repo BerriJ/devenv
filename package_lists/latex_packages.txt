@@ -22,6 +22,7 @@ csquotes
 currfile
 datatool
 ec
+elsarticle
 enumitem
 environ
 eso-pic
@@ -39,8 +40,10 @@ hyphen-german
 koma-script
 latexindent # Indentation
 latexmk
+lineno
 listings
 mathtools
+mdframed
 mfirstuc
 moderncv
 multirow
@@ -72,6 +75,3 @@ xfor
 xkeyval
 xpatch
 xstring
-mdframed
-lineno
-elsarticle
