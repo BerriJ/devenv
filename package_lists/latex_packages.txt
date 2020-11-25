@@ -1,6 +1,8 @@
 abstract
 acronym
 adjustbox
+algorithmicx
+algorithms
 appendixnumberbeamer
 babel-german
 babel-german
@@ -75,5 +77,3 @@ xfor
 xkeyval
 xpatch
 xstring
-algorithms
-algorithmicx
