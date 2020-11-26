@@ -1,5 +1,5 @@
 {
-    "name": "Thesis_Gas",
+    "name": "DevEnv",
     "image": "ghcr.io/berrij/devenv:latest",
     // Grant xhost access to root user in order to start x11 devices (r plots)
     "initializeCommand": "docker pull ghcr.io/berrij/devenv:latest; xhost local:root",
@@ -63,7 +63,6 @@
         "editor.formatOnPaste": true,
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "modifications",
         // Use zsh
         "terminal.integrated.shell.linux": "/bin/zsh"
     },
