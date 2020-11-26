@@ -1,6 +1,8 @@
 abstract
 acronym
 adjustbox
+algorithmicx
+algorithms
 appendixnumberbeamer
 babel-german
 babel-german
@@ -22,6 +24,7 @@ csquotes
 currfile
 datatool
 ec
+elsarticle
 enumitem
 environ
 eso-pic
@@ -39,8 +42,10 @@ hyphen-german
 koma-script
 latexindent # Indentation
 latexmk
+lineno
 listings
 mathtools
+mdframed
 mfirstuc
 moderncv
 multirow
