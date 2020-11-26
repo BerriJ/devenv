@@ -23,7 +23,8 @@ jobs:
 
       - name: Set current date
         run:  
-          echo "::set-env name=DATE::$(date +'%Y-%m-%d')"
+          # echo "::set-env name=DATE::$(date +'%Y-%m-%d')"
+          echo "{DATE}={$(date +'%Y-%m-%d')}" >> $GITHUB_ENV
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
