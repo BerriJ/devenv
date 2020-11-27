@@ -65,6 +65,5 @@
         "editor.formatOnSave": true,
         // Use zsh
         "terminal.integrated.shell.linux": "/bin/zsh"
-    },
-    "postCreateCommand": "git config --global commit.gpgsign true"
+    }
 }
