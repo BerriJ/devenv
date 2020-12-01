@@ -32,3 +32,4 @@ rugarch
 stargazer
 tictoc
 tidyverse
+RcppProgress
