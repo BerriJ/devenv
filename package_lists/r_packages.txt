@@ -32,7 +32,3 @@ rugarch
 stargazer
 tictoc
 tidyverse
-foreach
-parallel
-doParallel
-tictoc
