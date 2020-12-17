@@ -32,5 +32,3 @@ rugarch
 stargazer
 tictoc
 tidyverse
-Quandl
-doSNOW
