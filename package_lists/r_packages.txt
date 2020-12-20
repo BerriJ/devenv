@@ -3,7 +3,10 @@ conflicted
 cowplot
 data.table
 devtools
+doParallel
+doSNOW
 energy
+foreach
 forecast
 gamlss.dist
 ggfortify
@@ -14,6 +17,7 @@ magick
 microbenchmark
 opera
 pander
+parallel
 pdftools
 profvis
 quantreg
@@ -21,6 +25,8 @@ randomForest
 Rcpp
 RcppArmadillo
 RcppParallel
+RcppProgress
 reshape2
 stargazer
+tictoc
 tidyverse
