@@ -17,6 +17,7 @@ RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install \
     software-properties-common \
     git \
+    xclip \
     zsh \
     gnupg2 \
     nano \
