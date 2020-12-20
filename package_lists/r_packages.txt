@@ -2,6 +2,7 @@ anytime
 conflicted
 cowplot
 data.table
+devtools
 energy
 forecast
 gamlss.dist
