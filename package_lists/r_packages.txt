@@ -20,6 +20,7 @@ pander
 parallel
 pdftools
 profvis
+Quandl
 quantreg
 randomForest
 Rcpp
@@ -27,6 +28,7 @@ RcppArmadillo
 RcppParallel
 RcppProgress
 reshape2
+rugarch
 stargazer
 tictoc
 tidyverse
