@@ -85,3 +85,4 @@ xfor
 xkeyval
 xpatch
 xstring
+subfigure
