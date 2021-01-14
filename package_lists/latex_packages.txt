@@ -85,3 +85,9 @@ xfor
 xkeyval
 xpatch
 xstring
+german
+endnotes
+colortab
+pstricks
+fancybox
+arydshln
