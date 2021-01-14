@@ -4,6 +4,7 @@ adjustbox
 algorithmicx
 algorithms
 appendixnumberbeamer
+arydshln
 babel-german
 babel-german
 bbold
@@ -19,21 +20,25 @@ cleveref
 cm-super
 collectbox
 collection-fontsextra
+colortab
 contour
 csquotes
 currfile
 datatool
 ec
 elsarticle
+endnotes
 enumitem
 environ
 eso-pic
 eurosym
+fancybox
 filehook
 filemod
 float
 fontspec
 footmisc
+german
 gincltex
 glossaries
 glossaries-english
@@ -55,12 +60,14 @@ pdfpages
 pgfplots
 preprint
 preview
+pstricks
 relsize
 scalerel
 setspace
 siunitx
 soul
 standalone
+subfigure
 svn-prov
 tabu
 tabulary
@@ -71,6 +78,7 @@ textpos
 thumbpdf
 #! To check which packages belong to an .sty file: tlmgr search --global --file "authblk.sty"
 tracklang
+ulem
 varwidth
 was
 xfor
