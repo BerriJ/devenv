@@ -3,7 +3,7 @@ FROM ubuntu:focal
 SHELL ["/bin/bash", "-c"]
 
 ENV R_VERSION 4.0.3
-ENV R_REPOS https://packagemanager.rstudio.com/all/__linux__/focal/356
+ENV R_REPOS https://packagemanager.rstudio.com/all/1069075
 ENV DISPLAY :0
 ENV TZ Europe/Berlin
 
@@ -45,7 +45,7 @@ RUN chmod +x /install_scripts/install_r.sh &&\
     /install_scripts/install_r.sh
 
 # R packages on CRAN / RSPM
-RUN install2.r -error --ncpus 16 --repos $R_REPOS \
+RUN install2.r -error --ncpus 1 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
 
 # R packages on Github
