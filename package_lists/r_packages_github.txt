@@ -1,4 +1,3 @@
 dill/emoGG
 nstrayer/datadrivencv
 rstudio/fontawesome
-yihui/xaringan
