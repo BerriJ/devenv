@@ -3,7 +3,7 @@ FROM ubuntu:focal
 SHELL ["/bin/bash", "-c"]
 
 ENV R_VERSION 4.0.3
-ENV R_REPOS https://packagemanager.rstudio.com/all/1069075
+ENV R_REPOS https://packagemanager.rstudio.com/cran/__linux__/focal/2021-02-09
 ENV DISPLAY :0
 ENV TZ Europe/Berlin
 
@@ -69,5 +69,7 @@ RUN mkdir -p "$HOME/.zsh" &&\
 
 COPY .misc/.zshrc /root/.
 COPY .misc/.Rprofile /root/.
+
+RUN echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /root/.Rprofile
 
 ENTRYPOINT [ "/bin/zsh" ]

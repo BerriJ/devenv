@@ -34,8 +34,5 @@ ln -s /usr/local/lib/R/site-library/littler/examples/install2.r /usr/local/bin/i
 ln -s /usr/local/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r
 ln -s /usr/local/lib/R/site-library/littler/bin/r /usr/local/bin/r
 
-# Set repo to rspm frozen (see dockerfile)
-Rscript -e "options(repos = c(REPO_NAME = '$R_REPOS'))"
-
 # Install alternative r console
 pip3 install -U --no-cache-dir radian
