@@ -73,6 +73,8 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 RUN tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')
 
+RUN chown --recursive $USERNAME:$USERNAME /usr/local/texlive
+
 # Set the default shell to zsh rather than bash
 RUN mkdir -p "/home/$USERNAME/.zsh" &&\
     git clone https://github.com/sindresorhus/pure.git "/home/$USERNAME/.zsh/pure"

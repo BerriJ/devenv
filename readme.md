@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This Ubuntu based docker image intends to deliver a fully isolated dev environment for Python, R and Latex. Extend it as needed by adding or removing components.
+This Ubuntu-based docker image intends to deliver a fully isolated dev environment for Python, R and Latex. Extend it as needed by adding or removing components.
 
-It's intended that you use this image with a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers). VS Code will automatically install all required extensions for code formatting, linting, execution and debugging.
+It is intended that you use this image with a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers). VS Code will automatically install all required extensions for code formatting, linting, execution, and debugging.
 
 ## Contents
 
@@ -29,7 +29,7 @@ It's intended that you use this image with a [VS Code Devcontainer](https://code
 
 ## SSH and GPG Keys
 
-Look [here](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) on how to forward your lokal keys into the container.
+Look [here](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) on how to forward your local keys into the container.
 
 
 # Without VS-Code:
