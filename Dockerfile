@@ -49,7 +49,7 @@ RUN install2.r -error --ncpus 1 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
 
 # R packages on Github
-RUN installGithub.r \
+RUN installGithub.r --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
 
 # Install Latex
