@@ -7,6 +7,16 @@ ENV R_REPOS https://packagemanager.rstudio.com/cran/__linux__/focal/2021-02-09
 ENV DISPLAY :0
 ENV TZ Europe/Berlin
 
+# Add non root user
+
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && addgroup $USERNAME staff
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 COPY package_lists /package_lists
@@ -63,12 +73,18 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 RUN tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')
 
-# Set the default shell to zsh rather than bash
-RUN mkdir -p "$HOME/.zsh" &&\
-    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+RUN chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
-COPY .misc/.zshrc /root/.
-COPY .misc/.Rprofile /root/.
+# Set the default shell to zsh rather than bash
+RUN mkdir -p "/home/$USERNAME/.zsh" &&\
+    git clone https://github.com/sindresorhus/pure.git "/home/$USERNAME/.zsh/pure"
+
+COPY .misc/.zshrc /home/$USERNAME/.
+COPY .misc/.Rprofile /home/$USERNAME/.
+
+RUN echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /home/$USERNAME/.Rprofile
+
+USER $USERNAME
 
 RUN echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /root/.Rprofile
 
