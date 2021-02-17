@@ -84,6 +84,8 @@ COPY .misc/.Rprofile /home/$USERNAME/.
 
 RUN echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /home/$USERNAME/.Rprofile
 
+RUN chown --recursive $USERNAME:$USERNAME /home/$USERNAME
+
 USER $USERNAME
 
 ENTRYPOINT [ "/bin/zsh" ]
