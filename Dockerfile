@@ -27,6 +27,11 @@ RUN apt-get -y update &&\
     apt-get -y --no-install-recommends install \
     software-properties-common \
     git \
+    build-essential \
+    tar \
+    curl \
+    zip \
+    unzip \
     xclip \
     zsh \
     gnupg2 \
@@ -39,6 +44,12 @@ RUN apt-get -y update &&\
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&\
     # Cleanup apt cache
     rm -rf /var/lib/apt/lists/*
+
+# Install vcpkg c++ dependency manager
+RUN git clone https://github.com/Microsoft/vcpkg /usr/vcpkg \
+    && cd /usr/vcpkg \
+    && ./bootstrap-vcpkg.sh \
+    && ./vcpkg integrate install
 
 # Install Python
 RUN apt-get -y update &&\
