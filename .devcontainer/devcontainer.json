@@ -21,6 +21,10 @@
     ],
     // Extensions will get installed automatically
     "extensions": [
+        // C++
+        "ms-vscode.cpptools",
+        "austin.code-gnu-global",
+        "ms-vscode.cmake-tools",
         // Python
         "ms-python.vscode-pylance",
         "ms-python.python",
@@ -43,6 +47,11 @@
     // Set *default* container specific settings
     // Important for radian and latex
     "settings": {
+        // C++
+        "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+        "cmake.configureSettings": {
+            "CMAKE_TOOLCHAIN_FILE": "/usr/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        },
         // Python
         // "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
         "python.dataScience.interactiveWindowMode": "perFile",
