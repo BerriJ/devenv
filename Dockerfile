@@ -24,6 +24,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
 COPY package_lists /package_lists
 COPY install_scripts /install_scripts
 
+COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
+COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
+
 # Ubuntu Setup
 RUN apt-get -y --no-install-recommends install \
     software-properties-common \
@@ -39,7 +42,8 @@ RUN apt-get -y --no-install-recommends install \
     nano \
     ssh-client \
     locales &&\
-    locale-gen en_US.UTF-8
+    locale-gen en_US.UTF-8 &&\
+    git clone https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure
 
 # Install vcpkg c++ dependency manager
 RUN git clone https://github.com/Microsoft/vcpkg /usr/vcpkg \
@@ -79,9 +83,6 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Switch to non-root user
 USER $USERNAME
-RUN git clone https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure
-COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
-COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
 
 # Set the default shell to zsh rather than bash
 ENTRYPOINT [ "/bin/zsh" ]
