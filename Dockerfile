@@ -45,16 +45,7 @@ RUN apt-get -y --no-install-recommends install \
     locale-gen en_US.UTF-8 &&\
     git clone https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure
 
-# Install vcpkg c++ dependency manager
-RUN git clone https://github.com/Microsoft/vcpkg /usr/vcpkg \
-    && cd /usr/vcpkg \
-    && ./bootstrap-vcpkg.sh \
-    && ./vcpkg integrate install
-
-ENV PATH "/usr/vcpkg:${PATH}"
-
 # Install Python
-
 RUN apt-get -y --no-install-recommends install python3-pip && \
     # Python packages
     pip3 install -U --no-cache-dir \
@@ -70,6 +61,14 @@ RUN chmod +x install_scripts/install_r.sh &&\
     # R packages on Github
     &&installGithub.r --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
+
+# Install vcpkg C++ dependency manager
+RUN git clone https://github.com/Microsoft/vcpkg /usr/vcpkg \
+    && cd /usr/vcpkg \
+    && ./bootstrap-vcpkg.sh \
+    && ./vcpkg integrate install
+
+ENV PATH "/usr/vcpkg:${PATH}"
 
 # Install Latex
 RUN chmod +x install_scripts/install_latex.sh &&\
