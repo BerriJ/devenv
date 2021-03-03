@@ -56,7 +56,7 @@ RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh \
     && echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /home/$USERNAME/.Rprofile \
     # R packages on CRAN / RSPM
-    && install2.r -error --ncpus 1 --repos $R_REPOS \
+    && install2.r -error --ncpus 32 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
     # R packages on Github
     &&installGithub.r --repos $R_REPOS \
