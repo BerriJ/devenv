@@ -34,3 +34,4 @@ tictoc
 tidyverse
 xaringan
 xtable
+fontawesome

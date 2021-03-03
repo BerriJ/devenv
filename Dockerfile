@@ -2,8 +2,8 @@ FROM ubuntu:focal
 
 SHELL ["/bin/bash", "-c"]
 
-ENV R_VERSION 4.0.3
-ENV R_REPOS https://packagemanager.rstudio.com/cran/__linux__/focal/2021-02-09
+ENV R_VERSION 4.0.4
+ENV R_REPOS https://packagemanager.rstudio.com/all/__linux__/focal/1623553
 ENV DISPLAY :0
 ENV TZ Europe/Berlin
 
