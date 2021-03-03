@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Install build dependencies
-apt-get update
 apt-get install -y --no-install-recommends \
 wget \
 build-essential

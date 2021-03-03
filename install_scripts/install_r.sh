@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Install r build dependencies
-apt-get update
 apt-get install -y --no-install-recommends \
 curl \
 dirmngr \
@@ -17,8 +16,8 @@ libssl-dev \
 libmagick++-dev \
 libpoppler-cpp-dev \
 netbase \
-libxml2-dev &&\
-rm -rf /var/lib/apt/lists/*
+libxml2-dev \
+gdb
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
@@ -26,7 +25,6 @@ E298A3A825C0D65DFD57CBB651716619E084DAB9
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
 r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}*
-rm -rf /var/lib/apt/lists/*
 
 # Use littler installation scripts
 Rscript -e "install.packages(c('littler', 'docopt'), repos= '$R_REPOS')"
