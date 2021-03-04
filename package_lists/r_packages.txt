@@ -6,6 +6,7 @@ devtools
 doParallel
 doSNOW
 energy
+fontawesome
 foreach
 forecast
 gamlss.dist

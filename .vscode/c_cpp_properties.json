@@ -4,10 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/lib/R/site-library/Rcpp/include",
-                "/usr/local/lib/R/site-library/RcppArmadillo/include",
-                "/usr/local/lib/R/site-library/RcppProgress/include",
-                "/usr/share/R/include"
+                "/usr/local/lib/R/site-library/**",
+                "/usr/share/R/include",
+                "/usr/local/vcpkg/packages/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

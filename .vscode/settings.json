@@ -3,5 +3,8 @@
         "statusBar.background": "#666666",
         "statusBar.foreground": "#eeeeee",
         "statusBarItem.hoverBackground": "#4b4b4b"
+    },
+    "files.exclude": {
+        "**/.git": false
     }
 }

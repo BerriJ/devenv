@@ -17,7 +17,8 @@ libmagick++-dev \
 libpoppler-cpp-dev \
 netbase \
 libxml2-dev \
-gdb
+gdb \
+libgsl-dev
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \

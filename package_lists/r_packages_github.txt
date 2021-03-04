@@ -1,4 +1,1 @@
-dill/emoGG
-nstrayer/datadrivencv
-rstudio/fontawesome
 ManuelHentschel/vscDebugger
