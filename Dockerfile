@@ -15,11 +15,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Add non root user
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd -rm -d /home/$USERNAME -s /bin/bash -g root --uid $USER_UID --gid $USER_GID $USERNAME \
-    && addgroup $USERNAME staff \
-    && apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
+    && addgroup $USERNAME staff
 
 COPY package_lists /package_lists
 COPY install_scripts /install_scripts
@@ -28,7 +24,8 @@ COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
 
 # Ubuntu Setup
-RUN apt-get -y --no-install-recommends install \
+RUN apt-get update &&\
+    apt-get -y --no-install-recommends install \
     software-properties-common \
     git \
     build-essential \
@@ -61,23 +58,26 @@ RUN chmod +x install_scripts/install_r.sh &&\
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
     # R packages on Github
     &&installGithub.r --repos $R_REPOS \
-    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
 # Install vcpkg C++ dependency manager
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/vcpkg \
-    && rm -rf /usr/vcpkg/.git \
-    && cd /usr/vcpkg \
+RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+    && rm -rf /usr/local/vcpkg/.git \
+    && cd /usr/local/vcpkg \
     && ./bootstrap-vcpkg.sh \
-    && ./vcpkg integrate install
+    && ./vcpkg integrate install \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
 
-ENV PATH "/usr/vcpkg:${PATH}"
+ENV PATH "/usr/local/vcpkg:${PATH}"
 
 # Install Latex
 RUN chmod +x install_scripts/install_latex.sh &&\
     install_scripts/install_latex.sh \
     && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
     && tlmgr install \
-    $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
 # Set Latex Path
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
