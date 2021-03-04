@@ -4,7 +4,6 @@
 apt-get install -y --no-install-recommends \
 wget \
 build-essential
-rm -rf /var/lib/apt/lists/*
 
 # Install Latex
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz

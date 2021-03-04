@@ -43,7 +43,8 @@ RUN apt-get -y --no-install-recommends install \
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
-    git clone https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure
+    git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
+    && rm -rf /home/$USERNAME/.zsh/pure/.git
 
 # Install Python
 RUN apt-get -y --no-install-recommends install python3-pip && \
@@ -63,7 +64,8 @@ RUN chmod +x install_scripts/install_r.sh &&\
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
 
 # Install vcpkg C++ dependency manager
-RUN git clone https://github.com/Microsoft/vcpkg /usr/vcpkg \
+RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/vcpkg \
+    && rm -rf /usr/vcpkg/.git \
     && cd /usr/vcpkg \
     && ./bootstrap-vcpkg.sh \
     && ./vcpkg integrate install
