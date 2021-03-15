@@ -2,10 +2,10 @@ FROM ubuntu:focal
 
 SHELL ["/bin/bash", "-c"]
 
-ENV R_VERSION 4.0.4
-ENV R_REPOS https://packagemanager.rstudio.com/all/__linux__/focal/1623553
-ENV DISPLAY :0
-ENV TZ Europe/Berlin
+ENV R_VERSION=4.0.4 \
+    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/1623553 \
+    DISPLAY=:0 \
+    TZ=Europe/Berlin
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
