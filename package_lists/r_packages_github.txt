@@ -1,1 +1,1 @@
-ManuelHentschel/vscDebugger
+ManuelHentschel/vscDebugger@v0.4.5
