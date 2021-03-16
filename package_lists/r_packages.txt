@@ -34,7 +34,6 @@ rugarch
 scoringRules
 shiny
 stargazer
-support
 tictoc
 tidyverse
 xaringan
