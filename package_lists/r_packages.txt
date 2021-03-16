@@ -29,6 +29,7 @@ RcppParallel
 RcppProgress
 reshape2
 rugarch
+scoringRules
 shiny
 stargazer
 tictoc
