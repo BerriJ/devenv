@@ -6,10 +6,12 @@ devtools
 doParallel
 doSNOW
 energy
+eurostat
 fontawesome
 foreach
 forecast
 gamlss.dist
+gdata
 ggfortify
 kableExtra
 knitr
@@ -32,7 +34,9 @@ rugarch
 scoringRules
 shiny
 stargazer
+support
 tictoc
 tidyverse
 xaringan
 xtable
+zoo
