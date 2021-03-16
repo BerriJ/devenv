@@ -30,6 +30,7 @@ RcppParallel
 RcppProgress
 reshape2
 rugarch
+shiny
 stargazer
 tictoc
 tidyverse
