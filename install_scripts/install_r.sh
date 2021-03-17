@@ -18,7 +18,8 @@ libpoppler-cpp-dev \
 netbase \
 libxml2-dev \
 gdb \
-libgsl-dev
+libgsl-dev \
+libudunits2-dev # For eurostat package
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
