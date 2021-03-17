@@ -6,10 +6,12 @@ devtools
 doParallel
 doSNOW
 energy
+eurostat
 fontawesome
 foreach
 forecast
 gamlss.dist
+gdata
 ggfortify
 kableExtra
 knitr
@@ -30,9 +32,11 @@ RcppParallel
 RcppProgress
 reshape2
 rugarch
+scoringRules
 shiny
 stargazer
 tictoc
 tidyverse
 xaringan
 xtable
+zoo
