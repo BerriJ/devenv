@@ -3,8 +3,10 @@ acronym
 adjustbox
 algorithmicx
 algorithms
+animate
 appendixnumberbeamer
 arydshln
+attachfile
 babel-german
 babel-german
 bbold
@@ -85,3 +87,6 @@ xfor
 xkeyval
 xpatch
 xstring
+zref
+media9
+ocgx2

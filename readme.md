@@ -1,5 +1,9 @@
 # VS Code Devcontainer and Docker Image for Coding in R, Python, and Latex
 
+Obtain the latest stable image with:
+
+    docker pull ghcr.io/berrij/devenv:dev
+
 ## Introduction
 
 This Ubuntu-based docker image intends to deliver a fully isolated dev environment for Python, R and Latex. Extend it as needed by adding or removing components.
@@ -42,7 +46,7 @@ locally to grant access to the local x11 display server. This is necessary for R
 
 ## Run using:
 
-    docker run -it --rm --network=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix dev_env:latest
+    docker run -it --rm --network=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/berrij/devenv:dev
 
 ## Explanation:
 
