@@ -2,7 +2,7 @@
 
 Obtain the latest stable image with:
 
-    docker pull ghcr.io/berrij/devenv:dev
+    docker pull ghcr.io/berrij/devenv:latest
 
 ## Introduction
 
