@@ -90,3 +90,4 @@ xstring
 zref
 media9
 ocgx2
+pythonhighlight

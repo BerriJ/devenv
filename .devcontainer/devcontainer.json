@@ -44,6 +44,8 @@
         "daiyy.quick-html-previewer",
         // Make fancy screenshots
         "pnp.polacode",
+        // Live Share
+        "ms-vsliveshare.vsliveshare"
     ],
     // Set *default* container specific settings
     // Important for radian and latex
@@ -55,6 +57,7 @@
         },
         // Python
         // "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
+        "python.pythonPath": "/usr/bin/python3",
         "python.dataScience.interactiveWindowMode": "perFile",
         "python.dataScience.sendSelectionToInteractiveWindow": true,
         // R

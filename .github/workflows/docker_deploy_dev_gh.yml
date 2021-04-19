@@ -21,6 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set date tag
+        run: |
+
+          echo "DATE=$(date +'%Y-%m-%d')_dev" >> $GITHUB_ENV
+
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
@@ -35,9 +40,11 @@ jobs:
 
           # Tag Image for github 
           docker tag $IMAGE_NAME $IMAGE_ID:dev
+          docker tag $IMAGE_NAME $IMAGE_ID:$DATE
 
           # Log Into Github Container Registry
           echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
 
           # Push Image
+          docker push $IMAGE_ID:$DATE
           docker push $IMAGE_ID:dev

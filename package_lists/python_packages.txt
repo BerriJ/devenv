@@ -1,7 +1,12 @@
 autopep8
+bspline
 ipykernel
+matplotlib
 numdifftools
 numpy
 pandas
 properscoring
 scipy
+pylint
+sklearn
+statsmodels
