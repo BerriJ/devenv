@@ -3,7 +3,7 @@ FROM ubuntu:focal
 SHELL ["/bin/bash", "-c"]
 
 ENV R_VERSION=4.0.5 \
-    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/2173971 \
+    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/2696074 \
     DISPLAY=:0 \
     TZ=Europe/Berlin
 
