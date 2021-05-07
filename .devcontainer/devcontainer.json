@@ -15,9 +15,9 @@
     // current workspace. Uncomment or edit as you like.
     "mounts": [
         // Mount git folder into /workspaces - vscode will also mount the current workspace there
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/git,target=/workspaces,type=bind,consistency=cached",
+        //"source=${localEnv:HOME}${localEnv:USERPROFILE}/git,target=/workspaces,type=bind,consistency=cached",
         // Mount x11 into container -> to display R/Python graphics devices locally
-        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
+        //"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
     ],
     // Extensions will get installed automatically
     "extensions": [

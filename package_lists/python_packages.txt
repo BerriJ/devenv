@@ -1,12 +1,16 @@
 autopep8
 bspline
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
 ipykernel
 matplotlib
 numdifftools
 numpy
 pandas
 properscoring
-scipy
 pylint
+requests
+scipy
 sklearn
 statsmodels

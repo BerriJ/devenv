@@ -53,16 +53,19 @@ lineno
 listings
 mathtools
 mdframed
+media9
 mfirstuc
 moderncv
 multirow
 nth
+ocgx2
 pdflscape
 pdfpages
 pgfplots
 preprint
 preview
 pstricks
+pythonhighlight
 relsize
 scalerel
 setspace
@@ -88,6 +91,3 @@ xkeyval
 xpatch
 xstring
 zref
-media9
-ocgx2
-pythonhighlight

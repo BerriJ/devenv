@@ -12,9 +12,10 @@ fontawesome
 foreach
 forecast
 gamlss.dist
-glmnet
 gdata
 ggfortify
+glmnet
+httpgd
 inline
 inspectdf
 kableExtra
