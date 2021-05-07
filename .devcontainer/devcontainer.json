@@ -45,7 +45,9 @@
         // Make fancy screenshots
         "pnp.polacode",
         // Live Share
-        "ms-vsliveshare.vsliveshare"
+        "ms-vsliveshare.vsliveshare",
+        // Spotify
+        "shyykoserhiy.vscode-spotify"
     ],
     // Set *default* container specific settings
     // Important for radian and latex
@@ -77,6 +79,7 @@
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
         // Use zsh
+        "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.shell.linux": "/bin/zsh"
     }
 }

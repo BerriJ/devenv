@@ -12,6 +12,7 @@ fontawesome
 foreach
 forecast
 gamlss.dist
+gamlss.lasso
 gdata
 ggfortify
 glmnet
