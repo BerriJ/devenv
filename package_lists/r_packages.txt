@@ -30,6 +30,7 @@ opera
 pander
 parallel
 pdftools
+pkgdown
 plotrix
 profvis
 Quandl

@@ -20,7 +20,9 @@ libxml2-dev \
 gdb \
 libgsl-dev \
 libudunits2-dev \
-libgdal-dev
+libgdal-dev \
+libharfbuzz-dev \
+libfribidi-dev
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
