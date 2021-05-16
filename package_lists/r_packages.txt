@@ -22,6 +22,7 @@ inspectdf
 kableExtra
 knitr
 languageserver
+latex2exp
 magick
 microbenchmark
 neuralnet
