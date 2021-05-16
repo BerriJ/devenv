@@ -1,4 +1,5 @@
 anytime
+bibtex
 conflicted
 cowplot
 data.table
