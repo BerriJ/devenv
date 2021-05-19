@@ -23,7 +23,8 @@ libudunits2-dev \
 libgdal-dev \
 libharfbuzz-dev \
 libfribidi-dev \
-vim
+vim \
+cargo
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \

@@ -17,6 +17,7 @@ gamlss.lasso
 gdata
 gganimate
 ggfortify
+gifski
 glmnet
 httpgd
 inline
@@ -51,6 +52,7 @@ shiny
 stargazer
 tictoc
 tidyverse
+transformr
 tsibble
 xaringan
 xtable
