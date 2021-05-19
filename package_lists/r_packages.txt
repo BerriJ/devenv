@@ -15,6 +15,7 @@ forecast
 gamlss.dist
 gamlss.lasso
 gdata
+gganimate
 ggfortify
 glmnet
 httpgd
