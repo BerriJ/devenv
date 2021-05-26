@@ -1,7 +1,9 @@
 anytime
 bibtex
+cli
 conflicted
 cowplot
+crayon
 data.table
 devtools
 doParallel
