@@ -1,2 +1,3 @@
-ManuelHentschel/vscDebugger@v0.4.5
 gadenbuie/xaringanExtra
+ManuelHentschel/vscDebugger@v0.4.5
+vankesteren/firatheme
