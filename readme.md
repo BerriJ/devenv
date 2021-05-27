@@ -13,7 +13,7 @@ It is intended that you use this image with a [VS Code Devcontainer](https://cod
 ## Contents
 
 - R 4.X.X
-- Texlive 2020.X
+- Texlive 2021
 - Python 3.8.X
 
 # Setup using VS-Code
@@ -66,6 +66,10 @@ locally to grant access to the local x11 display server. This is necessary for R
     # Mounts the local .x11 server into the container
 
 # Remove Old Docker Images
+
+You can check the disk usage of Docker by running:
+
+    docker system df
 
 You likely want to add a cronjob to delete old docker images and containers. You can do so the following way:
 
