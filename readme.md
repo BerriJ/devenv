@@ -79,13 +79,14 @@ Edit your crontab with:
 
 Then add the following line:
 
-    * */6 * * * /usr/bin/docker system prune -a --force --filter "until=240h"
+    0 18 * * 5 /usr/bin/docker system prune --all --volumes --force
 
 This will remove all unused images not just dangling ones as long as they are older than 10 days.
 
-When using this Image with the .devcontainer.json as a devcontainer a local volume `extensions_cache` will be created for storing container extensions between container runs. If extensions are updated in the .devcontainer.json this volume has to be deleted:
+When using this image with the .devcontainer.json as a devcontainer, a local volume `extensions_cache` / `extensions_cache_insiders` will be created for storing container extensions between container runs. If extensions are updated in the .devcontainer.json this volume has to be deleted:
 
     docker volume rm extensions_cache
+    docker volume rm extensions_cache_insiders
 
 # Issues
 
