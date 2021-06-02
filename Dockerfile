@@ -83,6 +83,13 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 # Set Latex Path
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
+# Create folders to mount extensions
+RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
+    /home/$USERNAME/.vscode-server-insiders/extensions \
+    && chown -R $USERNAME \
+    /home/$USERNAME/.vscode-server \
+    /home/$USERNAME/.vscode-server-insiders
+
 # Switch to non-root user
 USER $USERNAME
 

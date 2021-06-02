@@ -83,6 +83,10 @@ Then add the following line:
 
 This will remove all unused images not just dangling ones as long as they are older than 10 days.
 
+When using this Image with the .devcontainer.json as a devcontainer a local volume `extensions_cache` will be created for storing container extensions between container runs. If extensions are updated in the .devcontainer.json this volume has to be deleted:
+
+    docker volume rm extensions_cache
+
 # Issues
 
 If you encounter issues or you want to propose a feature feel free to open an issue on [GitHub](https://github.com/BerriJ/devenv). 
