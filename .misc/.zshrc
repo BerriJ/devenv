@@ -6,3 +6,6 @@ zstyle ':prompt:pure:prompt:success' color green
 # Hide username:host
 prompt_pure_state[username]=
 alias sudo='sudo env PATH=$PATH'
+
+# Show system info
+neofetch

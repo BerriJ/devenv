@@ -39,6 +39,7 @@ RUN apt-get update &&\
     gnupg2 \
     nano \
     ssh-client \
+    neofetch \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
