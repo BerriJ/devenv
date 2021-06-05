@@ -12,6 +12,7 @@ doSNOW
 energy
 eurostat
 evir
+expm
 fontawesome
 foreach
 forecast
@@ -52,6 +53,7 @@ robust
 rugarch
 scoringRules
 shiny
+splines2
 stargazer
 tictoc
 tidyverse
