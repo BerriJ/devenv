@@ -51,6 +51,9 @@ RUN apt-get -y --no-install-recommends install python3-pip && \
     pip3 install -U --no-cache-dir \
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
+# Set PATH for user installed python packages
+ENV PATH="/home/vscode/.local/bin:${PATH}"
+
 # Install R
 RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh \
