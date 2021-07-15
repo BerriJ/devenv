@@ -48,6 +48,7 @@ Rcpp
 RcppArmadillo
 RcppParallel
 RcppProgress
+reactable
 reshape2
 robust
 rugarch
