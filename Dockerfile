@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 ENV R_VERSION=4.1.0 \
     # See https://packagemanager.rstudio.com/client/#/repos/1/overview
-    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/3969095 \
+    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/4129799 \
     DISPLAY=:0 \
     TZ=Europe/Berlin
 
@@ -39,7 +39,6 @@ RUN apt-get update &&\
     gnupg2 \
     nano \
     ssh-client \
-    neofetch \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
