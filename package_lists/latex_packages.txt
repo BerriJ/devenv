@@ -22,6 +22,8 @@ cleveref
 cm-super
 collectbox
 collection-fontsextra
+collection-fontsrecommended
+collection-latexrecommended
 colortab
 contour
 csquotes

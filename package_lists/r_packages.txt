@@ -50,10 +50,12 @@ RcppParallel
 RcppProgress
 reactable
 reshape2
+rhub
 robust
 rugarch
 scoringRules
 shiny
+spelling
 splines2
 stargazer
 tictoc
