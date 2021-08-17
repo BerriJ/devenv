@@ -36,7 +36,6 @@ neuralnet
 nnet
 opera
 pander
-parallel
 pdftools
 pkgdown
 plotrix
