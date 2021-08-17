@@ -2,9 +2,9 @@ FROM ubuntu:focal
 
 SHELL ["/bin/bash", "-c"]
 
-ENV R_VERSION=4.1.0 \
+ENV R_VERSION=4.1.1 \
     # See https://packagemanager.rstudio.com/client/#/repos/1/overview
-    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/4129799 \
+    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/4526215 \
     DISPLAY=:0 \
     TZ=Europe/Berlin
 
