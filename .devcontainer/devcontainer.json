@@ -39,8 +39,10 @@
         // Latex
         "james-yu.latex-workshop",
         "znck.grammarly",
-        // Hide .gitignored files from folder tree
+        // Git
         "npxms.hide-gitignored",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
         // Markdown
         "yzhang.markdown-all-in-one",
         // Preview HTML
