@@ -33,6 +33,9 @@ add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran4
 apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
 r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}*
 
+# Set default R locale
+echo "LANG=en_US.UTF-8" >> ~/.Renviron
+
 # Use littler installation scripts
 Rscript -e "install.packages(c('littler', 'docopt'), repos= '$R_REPOS')"
 ln -s /usr/local/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
