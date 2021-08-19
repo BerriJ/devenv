@@ -41,6 +41,7 @@ RUN apt-get update &&\
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
+    update-locale LANG="en_US.UTF-8" &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git
 
@@ -64,6 +65,10 @@ RUN chmod +x install_scripts/install_r.sh &&\
     &&installGithub.r --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+
+RUN echo "LANG=en_US.UTF-8" >> ~/.Renviron
+RUN Rscript -e "Sys.getlocale()"
+RUN Rscript -e "remotes::install_github('ManuelHentschel/vscDebugger@v0.4.7', repos= '$R_REPOS')"
 
 # Install vcpkg C++ dependency manager
 RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
