@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set up and install R
+# R_HOME=${R_HOME:-/usr/local/lib/R}
+
 # Install r build dependencies
 apt-get install -y --no-install-recommends \
 curl \
@@ -31,16 +34,21 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
 E298A3A825C0D65DFD57CBB651716619E084DAB9
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
-r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}*
-
-# Set default R locale
-echo "LANG=en_US.UTF-8" >> ~/.Renviron
+r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}* r-cran-littler
 
 # Use littler installation scripts
-Rscript -e "install.packages(c('littler', 'docopt'), repos= '$R_REPOS')"
-ln -s /usr/local/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
-ln -s /usr/local/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r
-ln -s /usr/local/lib/R/site-library/littler/bin/r /usr/local/bin/r
+ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r
+ln -s /usr/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r
+
+# ## Add default CRAN mirror
+echo "options(repos = c(CRAN = '$R_REPOS'), download.file.method = 'libcurl')" >> /usr/lib/R/etc/Rprofile.site
+
+## Set HTTPUserAgent for RSPM (https://github.com/rocker-org/rocker/issues/400)
+echo  'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(),
+                 paste(getRversion(), R.version$platform,
+                       R.version$arch, R.version$os)))' >> /usr/lib/R/etc/Rprofile.site
+
+Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
 
 # Install alternative r console
 pip3 install -U --no-cache-dir radian

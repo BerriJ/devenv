@@ -1,2 +1,3 @@
 gadenbuie/xaringanExtra@*release
 vankesteren/firatheme@*release
+ManuelHentschel/vscDebugger@*release

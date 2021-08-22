@@ -27,6 +27,7 @@ COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
 # Ubuntu Setup
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
+    apt-transport-https \
     software-properties-common \
     git \
     build-essential \
@@ -41,9 +42,12 @@ RUN apt-get update &&\
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
-    update-locale LANG="en_US.UTF-8" &&\
+    update-locale LANG=en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
 
 # Install Python
 RUN apt-get -y --no-install-recommends install python3-pip && \
@@ -57,7 +61,6 @@ ENV PATH="/home/vscode/.local/bin:${PATH}"
 # Install R
 RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh \
-    && echo "options(repos = c(REPO_NAME = '$R_REPOS'))" >> /home/$USERNAME/.Rprofile \
     # R packages on CRAN / RSPM
     && install2.r -error --ncpus 32 --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
@@ -65,10 +68,6 @@ RUN chmod +x install_scripts/install_r.sh &&\
     &&installGithub.r --repos $R_REPOS \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
-
-RUN echo "LANG=en_US.UTF-8" >> ~/.Renviron
-RUN Rscript -e "Sys.getlocale()"
-RUN Rscript -e "remotes::install_github('ManuelHentschel/vscDebugger@v0.4.7', repos= '$R_REPOS')"
 
 # Install vcpkg C++ dependency manager
 RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
