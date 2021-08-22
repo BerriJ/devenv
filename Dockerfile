@@ -61,11 +61,11 @@ ENV PATH="/home/vscode/.local/bin:${PATH}"
 # Install R
 RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh \
-    # R packages on CRAN / RSPM
-    && install2.r -error --ncpus 32 --repos $R_REPOS \
+    # R packages on RSPM
+    && install.r \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
     # R packages on Github
-    &&installGithub.r --repos $R_REPOS \
+    &&installGithub.r \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
