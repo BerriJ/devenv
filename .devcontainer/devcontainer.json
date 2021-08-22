@@ -69,6 +69,7 @@
         "r.rterm.linux": "/usr/local/bin/radian",
         "r.bracketedPaste": true,
         "r.sessionWatcher": true,
+        "r.plot.useHttpgd": true,
         // Latex
         // "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
         "latex-workshop.view.pdf.viewer": "tab",
