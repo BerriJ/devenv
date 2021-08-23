@@ -19,4 +19,6 @@ cpan install Log::Log4perl <<<yes \
 install YAML::Tiny \
 install YAML::Tiny \
 install Log::Dispatch::File \
-install File::HomeDir
+install File::HomeDir \
+install Class::Data::Inheritable \
+install Devel::StackTrace
