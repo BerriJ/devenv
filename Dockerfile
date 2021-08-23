@@ -46,17 +46,14 @@ RUN apt-get update &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git
 
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8 \
+    LANG=en_US.UTF-8
 
 # Install Python
 RUN apt-get -y --no-install-recommends install python3-pip && \
     # Python packages
     pip3 install -U --no-cache-dir \
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
-
-# Set PATH for user installed python packages
-ENV PATH="/home/vscode/.local/bin:${PATH}"
 
 # Install R
 RUN chmod +x install_scripts/install_r.sh &&\
@@ -77,8 +74,6 @@ RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
     && ./vcpkg integrate install \
     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
 
-ENV PATH "/usr/local/vcpkg:${PATH}"
-
 # Install Latex
 RUN chmod +x install_scripts/install_latex.sh &&\
     install_scripts/install_latex.sh \
@@ -87,8 +82,6 @@ RUN chmod +x install_scripts/install_latex.sh &&\
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
-# Set Latex Path
-ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
@@ -96,6 +89,11 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
     && chown -R $USERNAME \
     /home/$USERNAME/.vscode-server \
     /home/$USERNAME/.vscode-server-insiders
+
+# Set PATH for user installed python packages, latex and vcpkg
+ENV PATH="/home/vscode/.local/bin:${PATH}" \
+    PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
+    PATH="/usr/local/vcpkg:${PATH}"
 
 # Switch to non-root user
 USER $USERNAME
