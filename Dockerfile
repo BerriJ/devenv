@@ -59,7 +59,7 @@ RUN apt-get -y --no-install-recommends install python3-pip && \
 RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh \
     # R packages on RSPM
-    && install.r \
+    && install2.r --error --skipinstalled --ncpus 32 \
     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
     # R packages on Github
     &&installGithub.r \

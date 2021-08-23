@@ -49,5 +49,8 @@ echo "options(repos = c(CRAN = '$R_REPOS'), download.file.method = 'libcurl')" >
 ## Set HTTPUserAgent for RSPM (https://github.com/rocker-org/rocker/issues/400)
 echo  'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> /usr/lib/R/etc/Rprofile.site
 
+# Install docopt which is used by littler to install packages
+Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
+
 # Install alternative r console
 pip3 install -U --no-cache-dir radian

@@ -7,7 +7,6 @@ cowplot
 crayon
 data.table
 devtools
-docopt
 doParallel
 doSNOW
 energy
