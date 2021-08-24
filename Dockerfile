@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:focal@sha256:1e48201ccc2ab83afc435394b3bf70af0fa0055215c1e26a5da9b50a1ae367c9
 
 SHELL ["/bin/bash", "-c"]
 
