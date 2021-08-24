@@ -11,6 +11,8 @@ mkdir /install-tl-unx
 tar -xvf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1
 echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile
 echo "TEXDIR /usr/local/texlive" >> /install-tl-unx/texlive.profile
+echo "option_doc 0" >> /install-tl-unx/texlive.profile
+echo "option_src 0" >> /install-tl-unx/texlive.profile
 /install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile
 rm -r /install-tl-unx
 rm install-tl-unx.tar.gz
