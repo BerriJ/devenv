@@ -6,8 +6,10 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    target-branch: "develop"
   # Track base Image of Dockerfile
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "monthly"
+    target-branch: "develop"
