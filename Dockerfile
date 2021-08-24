@@ -2,10 +2,7 @@ FROM ubuntu:focal@sha256:1e48201ccc2ab83afc435394b3bf70af0fa0055215c1e26a5da9b50
 
 SHELL ["/bin/bash", "-c"]
 
-ENV R_VERSION=4.1.1 \
-    # See https://packagemanager.rstudio.com/client/#/repos/1/overview
-    R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/4561333 \
-    DISPLAY=:0 \
+ENV DISPLAY=:0 \
     TZ=Europe/Berlin
 
 ARG USERNAME=vscode
@@ -86,6 +83,12 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
+ENV R_VERSION=4.1.1
+
+# Set RSPM snapshot see:
+# https://packagemanager.rstudio.com/client/#/repos/1/overview
+ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/4561333
+
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
 COPY package_lists/r_packages_github.txt /package_lists/r_packages_github.txt
