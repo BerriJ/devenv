@@ -56,3 +56,5 @@ Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
 
 # Install alternative r console
 pip3 install -U --no-cache-dir radian
+
+rm -r /tmp/*

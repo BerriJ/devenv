@@ -25,3 +25,5 @@ install Log::Dispatch::File \
 install File::HomeDir \
 install Class::Data::Inheritable \
 install Devel::StackTrace
+
+rm -r /tmp/*
