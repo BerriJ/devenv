@@ -94,14 +94,7 @@ COPY package_lists/r_packages.txt /package_lists/r_packages.txt
 COPY package_lists/r_packages_github.txt /package_lists/r_packages_github.txt
 
 RUN chmod +x install_scripts/install_r.sh &&\
-    install_scripts/install_r.sh \
-    # R packages on RSPM
-    && install2.r --error --skipinstalled --ncpus 32 \
-    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
-    # R packages on Github
-    &&installGithub.r \
-    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+    install_scripts/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
