@@ -3,6 +3,7 @@
 # Set up and install R
 
 # Install r build dependencies
+apt-get update
 apt-get install -y --no-install-recommends \
 apt-transport-https \
 software-properties-common \
@@ -68,3 +69,6 @@ installGithub.r \
 chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
 rm -r /tmp/*
+apt-get autoremove -y
+apt-get autoclean -y
+rm -rf /var/lib/apt/lists/*
