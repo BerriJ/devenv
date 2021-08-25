@@ -4,6 +4,8 @@
 
 # Install r build dependencies
 apt-get install -y --no-install-recommends \
+apt-transport-https \
+software-properties-common \
 curl \
 dirmngr \
 gnupg-agent \
