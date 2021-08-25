@@ -25,13 +25,9 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
 # Ubuntu Setup
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
-    # apt-transport-https \
     ca-certificates \
-    # software-properties-common \
     git \
     build-essential \
-    # tar \
-    # curl \
     zip \
     unzip \
     xclip \
@@ -76,6 +72,9 @@ COPY package_lists/latex_packages.txt /package_lists/latex_packages.txt
 RUN chmod +x install_scripts/install_latex.sh &&\
     install_scripts/install_latex.sh \
     && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
+    && tlmgr option -- autobackup 0 \
+    && tlmgr option -- docfiles 0 \
+    && tlmgr option -- srcfiles 0 \
     && tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
