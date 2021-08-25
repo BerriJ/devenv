@@ -25,12 +25,13 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
 # Ubuntu Setup
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
-    apt-transport-https \
-    software-properties-common \
+    # apt-transport-https \
+    ca-certificates \
+    # software-properties-common \
     git \
     build-essential \
-    tar \
-    curl \
+    # tar \
+    # curl \
     zip \
     unzip \
     xclip \
@@ -48,14 +49,14 @@ ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
 
 # Install vcpkg C++ dependency manager
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
-    && rm -rf /usr/local/vcpkg/.git \
-    && cd /usr/local/vcpkg \
-    && ./bootstrap-vcpkg.sh \
-    && ./vcpkg integrate install \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
-
-ENV PATH="/usr/local/vcpkg:${PATH}"
+# RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+#     && rm -rf /usr/local/vcpkg/.git \
+#     && cd /usr/local/vcpkg \
+#     && ./bootstrap-vcpkg.sh \
+#     && ./vcpkg integrate install \
+#     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
+# 
+# ENV PATH="/usr/local/vcpkg:${PATH}"
 
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
