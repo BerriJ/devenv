@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install build dependencies
+apt-get update
 apt-get install -y --no-install-recommends \
 wget \
 build-essential
@@ -27,3 +28,7 @@ install Class::Data::Inheritable \
 install Devel::StackTrace
 
 rm -r /tmp/*
+rm -r /root/.cpan/build/*
+apt-get autoremove -y
+apt-get autoclean -y
+rm -rf /var/lib/apt/lists/*

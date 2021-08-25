@@ -39,7 +39,10 @@ RUN apt-get update &&\
     locale-gen en_US.UTF-8 &&\
     update-locale LANG=en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
-    && rm -rf /home/$USERNAME/.zsh/pure/.git
+    && rm -rf /home/$USERNAME/.zsh/pure/.git \
+    && apt-get autoremove -y \
+    && apt-get autoclean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
@@ -57,10 +60,14 @@ ENV LC_ALL=en_US.UTF-8 \
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
-RUN apt-get -y --no-install-recommends install python3-pip && \
+RUN apt-get update &&\
+    apt-get -y --no-install-recommends install python3-pip && \
     # Python packages
     pip3 install -U --no-cache-dir \
-    $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
+    && apt-get autoremove -y \
+    && apt-get autoclean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set PATH for user installed python packages
 ENV PATH="/home/vscode/.local/bin:${PATH}"
