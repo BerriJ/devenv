@@ -40,5 +40,5 @@ jobs:
           push: true
           tags:
             ghcr.io/${{ env.IMAGE_ID }}:PR
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+#          cache-from: type=gha
+#          cache-to: type=gha,mode=max
