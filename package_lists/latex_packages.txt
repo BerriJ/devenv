@@ -8,7 +8,6 @@ appendixnumberbeamer
 arydshln
 attachfile
 babel-german
-babel-german
 bbold
 beamer
 biber
@@ -21,7 +20,6 @@ chktex # Linting
 cleveref
 cm-super
 collectbox
-collection-fontsextra
 collection-fontsrecommended
 collection-latexrecommended
 colortab

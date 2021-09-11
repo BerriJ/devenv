@@ -25,12 +25,9 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
 # Ubuntu Setup
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
-    apt-transport-https \
-    software-properties-common \
+    ca-certificates \
     git \
     build-essential \
-    tar \
-    curl \
     zip \
     unzip \
     xclip \
@@ -42,28 +39,35 @@ RUN apt-get update &&\
     locale-gen en_US.UTF-8 &&\
     update-locale LANG=en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
-    && rm -rf /home/$USERNAME/.zsh/pure/.git
+    && rm -rf /home/$USERNAME/.zsh/pure/.git \
+    && apt-get autoremove -y \
+    && apt-get autoclean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
 
 # Install vcpkg C++ dependency manager
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
-    && rm -rf /usr/local/vcpkg/.git \
-    && cd /usr/local/vcpkg \
-    && ./bootstrap-vcpkg.sh \
-    && ./vcpkg integrate install \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
-
-ENV PATH="/usr/local/vcpkg:${PATH}"
+# RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+#     && rm -rf /usr/local/vcpkg/.git \
+#     && cd /usr/local/vcpkg \
+#     && ./bootstrap-vcpkg.sh \
+#     && ./vcpkg integrate install \
+#     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
+# 
+# ENV PATH="/usr/local/vcpkg:${PATH}"
 
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
-RUN apt-get -y --no-install-recommends install python3-pip && \
+RUN apt-get update &&\
+    apt-get -y --no-install-recommends install python3-pip && \
     # Python packages
     pip3 install -U --no-cache-dir \
-    $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
+    && apt-get autoremove -y \
+    && apt-get autoclean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set PATH for user installed python packages
 ENV PATH="/home/vscode/.local/bin:${PATH}"
@@ -75,6 +79,9 @@ COPY package_lists/latex_packages.txt /package_lists/latex_packages.txt
 RUN chmod +x install_scripts/install_latex.sh &&\
     install_scripts/install_latex.sh \
     && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
+    && tlmgr option -- autobackup 0 \
+    && tlmgr option -- docfiles 0 \
+    && tlmgr option -- srcfiles 0 \
     && tlmgr install \
     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
     && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
@@ -94,14 +101,7 @@ COPY package_lists/r_packages.txt /package_lists/r_packages.txt
 COPY package_lists/r_packages_github.txt /package_lists/r_packages_github.txt
 
 RUN chmod +x install_scripts/install_r.sh &&\
-    install_scripts/install_r.sh \
-    # R packages on RSPM
-    && install2.r --error --skipinstalled --ncpus 32 \
-    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ') \
-    # R packages on Github
-    &&installGithub.r \
-    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ') \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+    install_scripts/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.

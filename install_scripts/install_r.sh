@@ -3,7 +3,10 @@
 # Set up and install R
 
 # Install r build dependencies
+apt-get update
 apt-get install -y --no-install-recommends \
+apt-transport-https \
+software-properties-common \
 curl \
 dirmngr \
 gnupg-agent \
@@ -54,3 +57,18 @@ Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
 
 # Install alternative r console
 pip3 install -U --no-cache-dir radian
+
+# R packages on RSPM
+install2.r --error --skipinstalled --ncpus 32 \
+    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
+
+# R packages on Github
+installGithub.r \
+    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
+
+chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+
+rm -r /tmp/*
+apt-get autoremove -y
+apt-get autoclean -y
+rm -rf /var/lib/apt/lists/*
