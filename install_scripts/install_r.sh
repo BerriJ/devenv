@@ -1,53 +1,32 @@
 #!/bin/bash
 
-# Set up and install R
+echo "deb http://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" >> /etc/apt/sources.list
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
 apt-get update
-# apt-get install -y --no-install-recommends \
-# python3 \
-# pandoc \
-# gdb \
-# vim-tiny \
-# apt-transport-https \
-# software-properties-common \
-# dirmngr \
-# gnupg-agent \
-# fontconfig \
-# libcurl4-openssl-dev \
-# openssl \
-# libssl-dev \
-# libmagick++-dev \
-# netbase \
-# libxml2-dev \
-# libgsl-dev \
-# libudunits2-dev \
-# libgdal-dev \
-# libharfbuzz-dev \
-# libfribidi-dev
 
-apt-get -y install --no-install-recommends \
-      ca-certificates \
+apt-get update
+
+BUILDDEPS="libpoppler-cpp-dev \
+    libssl-dev"
+
+RUNDEPS="ca-certificates \
       less \
       libopenblas-base \
       libxml2-dev \
       vim-tiny \
       wget \
-      dirmngr
-    #   gpg \
-    #   gpg-agent
+      dirmngr"
 
-BUILDDEPS="libpoppler-cpp-dev \
-    libssl-dev"
-
-# Install r build dependencies
-apt-get install -y --no-install-recommends $BUILDDEPS
-
-# Install R
-echo "deb http://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" >> /etc/apt/sources.list
-gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
-apt-get update
-apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
-r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}* r-cran-littler
+# Install R amd dependencies
+apt-get install -y --no-install-recommends \
+    $BUILDDEPS \
+    $RUNDEPS \
+    r-base=${R_VERSION}* \
+    r-base-core=${R_VERSION}* \
+    r-recommended=${R_VERSION}* \
+    r-base-dev=${R_VERSION}* \
+    r-cran-littler
 
 # Use littler installation scripts
 ln -s /usr/lib/R/site-library/littler/examples/install.r /usr/local/bin/install.r
