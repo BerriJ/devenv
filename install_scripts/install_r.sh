@@ -27,13 +27,13 @@ apt-get update
 apt-get -y install --no-install-recommends \
       ca-certificates \
       less \
-      libopenblas-base \ 
+      libopenblas-base \
       libxml2-dev \
       vim-tiny \
       wget \
-      dirmngr \
-      gpg \
-      gpg-agent
+      dirmngr
+    #   gpg \
+    #   gpg-agent
 
 BUILDDEPS="libpoppler-cpp-dev \
     libssl-dev"
