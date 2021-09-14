@@ -27,7 +27,8 @@ apt-get update
 apt-get -y install --no-install-recommends \
       ca-certificates \
       less \
-      libopenblas-base \
+      libopenblas-base \ 
+      libxml2-dev \
       vim-tiny \
       wget \
       dirmngr \
