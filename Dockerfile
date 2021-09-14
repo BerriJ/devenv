@@ -76,15 +76,15 @@ ENV PATH="/home/vscode/.local/bin:${PATH}"
 COPY install_scripts/install_latex.sh /install_scripts/install_latex.sh
 COPY package_lists/latex_packages.txt /package_lists/latex_packages.txt
 
-RUN chmod +x install_scripts/install_latex.sh &&\
-    install_scripts/install_latex.sh \
-    && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
-    && tlmgr option -- autobackup 0 \
-    && tlmgr option -- docfiles 0 \
-    && tlmgr option -- srcfiles 0 \
-    && tlmgr install \
-    $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
+# RUN chmod +x install_scripts/install_latex.sh &&\
+#     install_scripts/install_latex.sh \
+#     && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
+#     && tlmgr option -- autobackup 0 \
+#     && tlmgr option -- docfiles 0 \
+#     && tlmgr option -- srcfiles 0 \
+#     && tlmgr install \
+#     $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
+#     && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
 # Set Latex Path
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
