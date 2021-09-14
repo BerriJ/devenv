@@ -40,9 +40,9 @@ BUILDDEPS="libpoppler-cpp-dev"
 apt-get install -y --no-install-recommends $BUILDDEPS
 
 # Install R
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
-E298A3A825C0D65DFD57CBB651716619E084DAB9
-add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+echo "deb http://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" >> /etc/apt/sources.list
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
 apt-get -y install --no-install-recommends r-base=${R_VERSION}* r-base-core=${R_VERSION}* \
 r-recommended=${R_VERSION}* r-base-dev=${R_VERSION}* r-cran-littler
 
