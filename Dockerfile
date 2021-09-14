@@ -25,6 +25,7 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
 # Ubuntu Setup
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
+    ca-certificates \
     git \
     build-essential \
     zip \
