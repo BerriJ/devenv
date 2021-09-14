@@ -2,30 +2,39 @@
 
 # Set up and install R
 apt-get update
-apt-get install -y --no-install-recommends \
-pandoc \
-gdb \
-vim \
-apt-transport-https \
-software-properties-common \
-dirmngr \
-gnupg-agent \
-fontconfig \
-perl \
-libcurl4-openssl-dev \
-openssl \
-libssl-dev \
-libmagick++-dev \
-libpoppler-cpp-dev \
-netbase \
-libxml2-dev \
-libgsl-dev \
-libudunits2-dev \
-libgdal-dev \
-libharfbuzz-dev \
-libfribidi-dev
+# apt-get install -y --no-install-recommends \
+# python3 \
+# pandoc \
+# gdb \
+# vim-tiny \
+# apt-transport-https \
+# software-properties-common \
+# dirmngr \
+# gnupg-agent \
+# fontconfig \
+# libcurl4-openssl-dev \
+# openssl \
+# libssl-dev \
+# libmagick++-dev \
+# netbase \
+# libxml2-dev \
+# libgsl-dev \
+# libudunits2-dev \
+# libgdal-dev \
+# libharfbuzz-dev \
+# libfribidi-dev
 
-BUILDDEPS="cargo"
+apt-get -y install --no-install-recommends \
+      ca-certificates \
+      less \
+      libopenblas-base \
+      vim-tiny \
+      wget \
+      dirmngr \
+      gpg \
+      gpg-agent
+
+BUILDDEPS="libpoppler-cpp-dev"
 
 # Install r build dependencies
 apt-get install -y --no-install-recommends $BUILDDEPS
