@@ -1,20 +1,17 @@
 #!/bin/bash
 
 # Set up and install R
-
-# Install r build dependencies
 apt-get update
 apt-get install -y --no-install-recommends \
+pandoc \
+gdb \
+vim \
 apt-transport-https \
 software-properties-common \
-curl \
 dirmngr \
 gnupg-agent \
 fontconfig \
-pandoc \
 perl \
-python3-pip \
-wget \
 libcurl4-openssl-dev \
 openssl \
 libssl-dev \
@@ -22,14 +19,16 @@ libmagick++-dev \
 libpoppler-cpp-dev \
 netbase \
 libxml2-dev \
-gdb \
 libgsl-dev \
 libudunits2-dev \
 libgdal-dev \
 libharfbuzz-dev \
-libfribidi-dev \
-vim \
-cargo
+libfribidi-dev
+
+BUILDDEPS="cargo"
+
+# Install r build dependencies
+apt-get install -y --no-install-recommends $BUILDDEPS
 
 # Install R
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
@@ -69,6 +68,8 @@ installGithub.r \
 chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
 rm -r /tmp/*
+apt-get remove --purge -y $BUILDDEPS
 apt-get autoremove -y
 apt-get autoclean -y
 rm -rf /var/lib/apt/lists/*
+
