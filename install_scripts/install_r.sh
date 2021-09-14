@@ -34,7 +34,8 @@ apt-get -y install --no-install-recommends \
       gpg \
       gpg-agent
 
-BUILDDEPS="libpoppler-cpp-dev"
+BUILDDEPS="libpoppler-cpp-dev \
+    libssl-dev"
 
 # Install r build dependencies
 apt-get install -y --no-install-recommends $BUILDDEPS
