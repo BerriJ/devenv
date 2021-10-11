@@ -9,6 +9,7 @@ arydshln
 attachfile
 babel-german
 bbold
+bbm-macros
 beamer
 biber
 biblatex
@@ -59,6 +60,7 @@ moderncv
 multirow
 nth
 ocgx2
+paralist
 pdflscape
 pdfpages
 pgfplots
