@@ -4,7 +4,6 @@
 apt-get update
 apt-get install -y --no-install-recommends \
 wget \
-build-essential \
 pandoc
 
 # Install Latex
