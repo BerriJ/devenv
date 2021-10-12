@@ -16,7 +16,8 @@ RUNDEPS="ca-certificates \
       libxml2-dev \
       vim-tiny \
       wget \
-      dirmngr"
+      dirmngr \
+      pandoc"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
