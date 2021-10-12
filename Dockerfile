@@ -28,6 +28,7 @@ RUN apt-get update &&\
     ca-certificates \
     git \
     build-essential \
+    netbase \
     zip \
     unzip \
     xclip \
