@@ -59,6 +59,7 @@ splines2
 stargazer
 tictoc
 tidyverse
+tikzDevice
 transformr
 tsibble
 xaringan
