@@ -38,6 +38,7 @@ RUN apt-get update &&\
     ssh-client \
     locales &&\
     locale-gen en_US.UTF-8 &&\
+    locale-gen de_DE.UTF-8 &&\
     update-locale LANG=en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git \
