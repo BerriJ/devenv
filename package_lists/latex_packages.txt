@@ -50,6 +50,7 @@ hyphen-german
 koma-script
 latexindent # Indentation
 latexmk
+latex-tools-dev
 lineno
 listings
 mathtools
