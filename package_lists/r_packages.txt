@@ -23,6 +23,7 @@ gganimate
 ggfortify
 gifski
 glmnet
+gt
 httpgd
 inline
 inspectdf
@@ -35,6 +36,7 @@ microbenchmark
 neuralnet
 nnet
 opera
+paletteer
 pander
 pdftools
 pkgdown
