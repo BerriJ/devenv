@@ -70,6 +70,7 @@
         "r.bracketedPaste": true,
         "r.sessionWatcher": true,
         "r.plot.useHttpgd": true,
+        "r.plot.defaults.fullWindowMode": true,
         // Latex
         // "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
         "latex-workshop.view.pdf.viewer": "tab",
