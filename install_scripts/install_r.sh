@@ -7,8 +7,7 @@ apt-get update
 
 apt-get update
 
-BUILDDEPS="libpoppler-cpp-dev \
-    libssl-dev"
+BUILDDEPS="libssl-dev"
 
 RUNDEPS="ca-certificates \
       less \
@@ -18,7 +17,8 @@ RUNDEPS="ca-certificates \
       wget \
       dirmngr \
       pandoc \
-      libmagick++-dev"
+      libmagick++-dev \
+      libpoppler-cpp-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
