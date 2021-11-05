@@ -17,7 +17,8 @@ RUNDEPS="ca-certificates \
       vim-tiny \
       wget \
       dirmngr \
-      pandoc"
+      pandoc \
+      libmagick++-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
