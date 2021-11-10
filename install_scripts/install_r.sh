@@ -22,7 +22,9 @@ RUNDEPS="ca-certificates \
       libudunits2-dev \
       libproj-dev \
       libgdal-dev \
-      libgeos-dev"
+      libgeos-dev \
+      libharfbuzz-dev \
+      libfribidi-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
@@ -66,7 +68,6 @@ chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
 rm -r /tmp/*
 apt-get remove --purge -y $BUILDDEPS
-apt-get autoremove -y
 apt-get autoclean -y
 rm -rf /var/lib/apt/lists/*
 
