@@ -18,7 +18,8 @@ RUNDEPS="ca-certificates \
       dirmngr \
       pandoc \
       libmagick++-dev \
-      libpoppler-cpp-dev"
+      libpoppler-cpp-dev \
+      libudunits2-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
