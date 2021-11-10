@@ -22,8 +22,7 @@ RUNDEPS="ca-certificates \
       libudunits2-dev \
       libproj-dev \
       libgdal-dev \
-      libgeos-dev
-      "
+      libgeos-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
