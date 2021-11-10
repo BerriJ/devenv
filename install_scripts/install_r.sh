@@ -20,7 +20,10 @@ RUNDEPS="ca-certificates \
       libmagick++-dev \
       libpoppler-cpp-dev \
       libudunits2-dev \
-      libproj-dev"
+      libproj-dev \
+      libgdal-dev \
+      libgeos-dev
+      "
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
