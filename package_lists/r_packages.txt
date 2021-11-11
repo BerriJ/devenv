@@ -47,6 +47,7 @@ quantreg
 randomForest
 Rcpp
 RcppArmadillo
+RcppClock
 RcppParallel
 RcppProgress
 reactable
