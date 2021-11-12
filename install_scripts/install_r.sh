@@ -11,7 +11,8 @@ BUILDDEPS="libssl-dev"
 
 RUNDEPS="ca-certificates \
       less \
-      libopenblas-base \
+      libblas-dev \
+      liblapack-dev \
       libxml2-dev \
       vim-tiny \
       wget \
