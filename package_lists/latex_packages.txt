@@ -8,8 +8,8 @@ appendixnumberbeamer
 arydshln
 attachfile
 babel-german
-bbold
 bbm-macros
+bbold
 beamer
 biber
 biblatex
