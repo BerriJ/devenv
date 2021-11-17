@@ -40,6 +40,7 @@ paletteer
 pander
 pdftools
 pkgdown
+plotly
 plotrix
 profvis
 Quandl
