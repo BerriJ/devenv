@@ -36,6 +36,7 @@ microbenchmark
 neuralnet
 nnet
 opera
+pagedown
 paletteer
 pander
 pdftools
