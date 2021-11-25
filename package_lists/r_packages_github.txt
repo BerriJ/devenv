@@ -1,3 +1,4 @@
 gadenbuie/xaringanExtra@*release
 ManuelHentschel/vscDebugger@*release
 vankesteren/firatheme@*release
+zdebruine/RcppClock
