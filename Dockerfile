@@ -18,9 +18,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
     /home/$USERNAME/.vscode-server-insiders/extensions \
+    workspaces \
     && chown -R $USERNAME \
     /home/$USERNAME/.vscode-server \
-    /home/$USERNAME/.vscode-server-insiders
+    /home/$USERNAME/.vscode-server-insiders \
+    workspaces
 
 # Ubuntu Setup
 RUN apt-get update &&\
