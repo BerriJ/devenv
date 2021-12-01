@@ -31,8 +31,10 @@ kableExtra
 knitr
 languageserver
 latex2exp
+lightgbm
 magick
 microbenchmark
+mlrMBO
 neuralnet
 nnet
 opera

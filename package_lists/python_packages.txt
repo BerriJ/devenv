@@ -15,12 +15,11 @@ numpy
 pandas
 properscoring
 pylint
+pyparsing==2.4.7
 pytest
 redis
-requests
 requests
 scipy
 sklearn
 statsmodels
 uvicorn
-pyparsing==2.4.7
