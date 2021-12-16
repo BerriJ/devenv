@@ -113,5 +113,5 @@ COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
 # Switch to non-root user
 USER $USERNAME
 
-# Set the default shell to zsh rather than bash
-ENTRYPOINT [ "/bin/zsh" ]
+# Start zsh
+CMD [ "zsh" ]
