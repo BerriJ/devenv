@@ -30,6 +30,7 @@ RUN apt-get update &&\
     ca-certificates \
     git \
     build-essential \
+    ccache \
     netbase \
     zip \
     unzip \
@@ -108,7 +109,14 @@ RUN chmod +x install_scripts/install_r.sh &&\
     install_scripts/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
+
 COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
+
+RUN mkdir /home/$USERNAME/.R && chown -R $USERNAME /home/$USERNAME/.R
+COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
+
+RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
+COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
 
 # Switch to non-root user
 USER $USERNAME
