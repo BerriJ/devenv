@@ -47,6 +47,7 @@ glossaries
 glossaries-english
 glossaries-extra
 hyphen-german
+inconsolata
 koma-script
 latexindent # Indentation
 latexmk
