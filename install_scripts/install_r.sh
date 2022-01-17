@@ -24,7 +24,8 @@ RUNDEPS="ca-certificates \
       libgdal-dev \
       libgeos-dev \
       libharfbuzz-dev \
-      libfribidi-dev"
+      libfribidi-dev \
+      phantomjs"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
