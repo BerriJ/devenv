@@ -90,6 +90,7 @@ tracklang
 ulem
 varwidth
 was
+wrapfig
 xfor
 xkeyval
 xpatch
