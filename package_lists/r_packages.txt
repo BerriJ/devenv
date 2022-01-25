@@ -46,6 +46,7 @@ pkgdown
 plotly
 plotrix
 profvis
+qgam
 Quandl
 quantreg
 randomForest
