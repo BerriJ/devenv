@@ -68,6 +68,7 @@ tidyverse
 tikzDevice
 transformr
 tsibble
+tsrobprep
 xaringan
 xtable
 zoo
