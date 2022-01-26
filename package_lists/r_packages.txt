@@ -1,8 +1,11 @@
 anytime
+aTSA
 bibtex
 car
+CDVineCopulaConditional
 cli
 conflicted
+copula
 cowplot
 crayon
 data.table
@@ -19,11 +22,14 @@ forecast
 gamlss.dist
 gamlss.lasso
 gdata
+GGally
 gganimate
 ggfortify
 gifski
 glmnet
+gridExtra
 gt
+Hmisc
 httpgd
 inline
 inspectdf
@@ -33,6 +39,8 @@ languageserver
 latex2exp
 lightgbm
 magick
+MASS
+Metrics
 microbenchmark
 mlrMBO
 neuralnet
@@ -47,6 +55,7 @@ plotly
 plotrix
 profvis
 qgam
+QRM
 Quandl
 quantreg
 randomForest
@@ -58,6 +67,7 @@ reactable
 reshape2
 rhub
 robust
+rockchalk
 rugarch
 scoringRules
 shiny
@@ -70,6 +80,8 @@ tikzDevice
 transformr
 tsibble
 tsrobprep
+VineCopula
+wiqid
 xaringan
 xtable
 zoo
