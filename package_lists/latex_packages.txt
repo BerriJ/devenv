@@ -28,6 +28,7 @@ contour
 csquotes
 currfile
 datatool
+doublestroke
 ec
 elsarticle
 endnotes
@@ -53,6 +54,7 @@ latexindent # Indentation
 latexmk
 latex-tools-dev
 lineno
+lipsum
 listings
 mathtools
 mdframed
@@ -85,7 +87,7 @@ texdoc # Package Documentation
 textcase
 textpos
 thumbpdf
-#! To check which packages belong to an .sty file: tlmgr search --global --file "authblk.sty"
+#! To find packages: tlmgr search --global --file "authblk.sty"
 tracklang
 ulem
 varwidth
