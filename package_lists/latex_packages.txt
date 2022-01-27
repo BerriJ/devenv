@@ -16,6 +16,7 @@ biblatex
 bigfoot
 booktabs
 breqn
+cancel
 caption
 chktex # Linting
 cleveref
@@ -48,6 +49,7 @@ glossaries
 glossaries-english
 glossaries-extra
 hyphen-german
+ieeetran
 inconsolata
 koma-script
 latexindent # Indentation
@@ -68,6 +70,7 @@ paralist
 pdflscape
 pdfpages
 pgfplots
+placeins
 preprint
 preview
 pstricks
