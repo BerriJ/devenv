@@ -22,6 +22,7 @@ RUNDEPS="ca-certificates \
       libudunits2-dev \
       libproj-dev \
       libgdal-dev \
+      libgsl-dev \
       libgeos-dev \
       libharfbuzz-dev \
       libfribidi-dev \
