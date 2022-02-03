@@ -33,6 +33,7 @@ RUN apt-get update &&\
     ccache \
     netbase \
     zip \
+    ttf-mscorefonts-installer \
     unzip \
     xclip \
     zsh \
