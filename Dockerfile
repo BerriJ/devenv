@@ -39,6 +39,7 @@ RUN apt-get update &&\
     gnupg2 \
     nano \
     ssh-client \
+    fonts-lmodern \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     locale-gen de_DE.UTF-8 &&\
