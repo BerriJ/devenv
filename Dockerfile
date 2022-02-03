@@ -39,7 +39,7 @@ RUN apt-get update &&\
     gnupg2 \
     nano \
     ssh-client \
-    fonts-lmodern \
+    fontconfig \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     locale-gen de_DE.UTF-8 &&\
@@ -118,6 +118,11 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
+
+# Copy some fonts
+COPY .misc/lmodern.ttf /usr/local/share/fonts/.
+COPY .misc/times_new_roman.ttf /usr/local/share/fonts/.
+RUN fc-cache -f -v
 
 # Switch to non-root user
 USER $USERNAME
