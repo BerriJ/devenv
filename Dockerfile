@@ -100,7 +100,7 @@ ENV R_VERSION=4.1.2
 
 # Set RSPM snapshot see:
 # https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/2022-01-13+Y3JhbiwyOjQ1MjYyMTU7M0ZDNzkwNzE
+ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/2022-02-03+Y3JhbiwyOjQ1MjYyMTU7RDBEQzQyQzE
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
