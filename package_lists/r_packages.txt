@@ -67,6 +67,7 @@ reactable
 reshape2
 rhub
 rmgarch
+RMySQL
 robust
 rockchalk
 rugarch
