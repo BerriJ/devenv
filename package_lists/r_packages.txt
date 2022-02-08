@@ -66,6 +66,7 @@ RcppProgress
 reactable
 reshape2
 rhub
+rmgarch
 robust
 rockchalk
 rugarch
