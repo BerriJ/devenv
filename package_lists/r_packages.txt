@@ -63,6 +63,7 @@ Rcpp
 RcppArmadillo
 RcppParallel
 RcppProgress
+RCurl
 reactable
 reshape2
 rhub
