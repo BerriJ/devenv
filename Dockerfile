@@ -25,7 +25,8 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
     workspaces
 
 # Ubuntu Setup
-RUN apt-get update &&\
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections &&\
+    apt-get update &&\
     apt-get -y --no-install-recommends install \
     ca-certificates \
     git \
@@ -40,6 +41,7 @@ RUN apt-get update &&\
     nano \
     ssh-client \
     fontconfig \
+    ttf-mscorefonts-installer \
     locales &&\
     locale-gen en_US.UTF-8 &&\
     locale-gen de_DE.UTF-8 &&\
@@ -52,6 +54,15 @@ RUN apt-get update &&\
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
+
+# Font config
+# "LM Roman 10", "Times New Roman" ... use `showtext` package in R
+COPY .misc/lmroman10-regular-webfont.ttf /usr/share/fonts/truetype/.
+COPY .misc/lmroman10-italic-webfont.ttf /usr/share/fonts/truetype/.
+COPY .misc/lmroman10-bolditalic-webfont.ttf /usr/share/fonts/truetype/.
+COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
+
+RUN fc-cache -f -v
 
 # Install vcpkg C++ dependency manager
 # RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
@@ -118,11 +129,6 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
-
-# Copy some fonts
-COPY .misc/lmodern.ttf /usr/local/share/fonts/.
-COPY .misc/times_new_roman.ttf /usr/local/share/fonts/.
-RUN fc-cache -f -v
 
 # Switch to non-root user
 USER $USERNAME

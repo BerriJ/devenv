@@ -74,6 +74,7 @@ rockchalk
 rugarch
 scoringRules
 shiny
+showtext
 spelling
 splines2
 stargazer
