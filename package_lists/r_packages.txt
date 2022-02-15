@@ -25,6 +25,7 @@ gdata
 GGally
 gganimate
 ggfortify
+ggthemes
 gifski
 glmnet
 gridExtra
