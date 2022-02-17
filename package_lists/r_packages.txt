@@ -42,6 +42,7 @@ lightgbm
 magick
 MASS
 Metrics
+mgcViz
 microbenchmark
 mlrMBO
 neuralnet
