@@ -1,3 +1,4 @@
 gadenbuie/xaringanExtra@*release
 ManuelHentschel/vscDebugger@*release
 zdebruine/RcppClock
+BerriJ/strsplit.fix
