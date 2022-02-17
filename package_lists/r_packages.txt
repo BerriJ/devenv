@@ -25,6 +25,7 @@ gdata
 GGally
 gganimate
 ggfortify
+ggsci
 ggthemes
 gifski
 glmnet
