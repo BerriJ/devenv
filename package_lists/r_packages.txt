@@ -24,6 +24,7 @@ gamlss.lasso
 gdata
 GGally
 gganimate
+ggcorrplot
 ggfortify
 ggsci
 ggthemes
