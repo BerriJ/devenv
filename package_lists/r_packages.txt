@@ -6,6 +6,7 @@ CDVineCopulaConditional
 cli
 conflicted
 copula
+corrplot
 cowplot
 crayon
 data.table
