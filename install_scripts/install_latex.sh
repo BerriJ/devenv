@@ -27,6 +27,9 @@ install File::HomeDir \
 install Class::Data::Inheritable \
 install Devel::StackTrace
 
+echo "main_memory = 7999999" >> /usr/local/texlive/texmf.cnf
+echo "save_size  = 7999999" >> /usr/local/texlive/texmf.cnf
+
 rm -r /tmp/*
 rm -r /root/.cpan/build/*
 apt-get autoremove -y
