@@ -27,6 +27,7 @@ GGally
 gganimate
 ggcorrplot
 ggfortify
+ggnewscale
 ggsci
 ggthemes
 gifski
