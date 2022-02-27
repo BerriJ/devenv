@@ -27,7 +27,8 @@ RUNDEPS="ca-certificates \
       libharfbuzz-dev \
       libfribidi-dev \
       phantomjs \
-      curl"
+      curl \
+      libgit2-dev"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
