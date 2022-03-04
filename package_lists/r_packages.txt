@@ -17,6 +17,7 @@ energy
 eurostat
 evir
 expm
+ExtremalDep
 fontawesome
 foreach
 forecast
