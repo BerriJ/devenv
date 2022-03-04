@@ -81,6 +81,7 @@ rugarch
 scoringRules
 shiny
 showtext
+skewt
 spelling
 splines2
 stargazer
