@@ -40,7 +40,9 @@ eurosym
 fancybox
 filehook
 filemod
+fira
 float
+fontaxes
 fontspec
 footmisc
 german
