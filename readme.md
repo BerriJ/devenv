@@ -13,7 +13,7 @@ It is intended that you use this image with a [VS Code Devcontainer](https://cod
 ## Contents
 
 - R 4.X.X
-- Texlive 2021
+- Texlive 2022
 - Python 3.8.X
 
 # Setup using VS-Code
