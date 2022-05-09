@@ -10,6 +10,7 @@ corrplot
 cowplot
 crayon
 data.table
+dbx
 dccpp
 devtools
 doParallel
