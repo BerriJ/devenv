@@ -1,3 +1,4 @@
 BerriJ/strsplit.fix
 gadenbuie/xaringanExtra@*release
 ManuelHentschel/vscDebugger@*release
+stenevang/sftp
