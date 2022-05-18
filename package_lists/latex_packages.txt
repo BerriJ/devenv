@@ -66,6 +66,7 @@ media9
 mfirstuc
 moderncv
 multirow
+nomencl
 nth
 ocgx2
 paralist
@@ -81,6 +82,7 @@ relsize
 scalerel
 setspace
 siunitx
+smartdiagram
 soul
 standalone
 subfigure
