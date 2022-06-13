@@ -40,7 +40,6 @@
         "james-yu.latex-workshop",
         "znck.grammarly",
         // Git
-        "npxms.hide-gitignored",
         "eamodio.gitlens",
         "github.vscode-pull-request-github",
         // Markdown
@@ -82,6 +81,8 @@
         // Format code as you type
         "editor.formatOnPaste": true,
         "editor.formatOnType": true,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        // Hide .gitignore files
+        "explorer.excludeGitIgnore": true
     }
 }
