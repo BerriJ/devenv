@@ -93,6 +93,7 @@ tcolorbox
 texdoc # Package Documentation
 textcase
 textpos
+threeparttable
 thumbpdf
 #! To find packages: tlmgr search --global --file "authblk.sty"
 tracklang
