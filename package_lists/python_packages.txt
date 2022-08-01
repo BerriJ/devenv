@@ -9,10 +9,12 @@ google-auth-httplib2
 google-auth-oauthlib
 ipykernel
 Jinja2
+kaleido
 matplotlib
 numdifftools
 numpy
 pandas
+plotly
 properscoring
 pylint
 pyparsing==2.4.7
