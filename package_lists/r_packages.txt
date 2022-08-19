@@ -79,6 +79,7 @@ reactable
 reshape2
 reticulate
 rhub
+RMariaDB
 rmgarch
 RMySQL
 robust
