@@ -89,6 +89,7 @@ scoringRules
 shiny
 showtext
 skewt
+snakecase
 spelling
 splines2
 stargazer
