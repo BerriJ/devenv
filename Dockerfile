@@ -1,4 +1,4 @@
-FROM ubuntu:focal@sha256:af5efa9c28de78b754777af9b4d850112cad01899a5d37d2617bb94dc63a49aa
+FROM ubuntu:jammy@sha256:a8fe6fd30333dc60fc5306982a7c51385c2091af1e0ee887166b40a905691fd0
 
 SHELL ["/bin/bash", "-c"]
 
@@ -117,7 +117,7 @@ ENV R_VERSION=4.2.1
 
 # Set RSPM snapshot see:
 # https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/focal/2022-07-28+Y3JhbiwyOjQ1MjYyMTU7QjcyRjUwNEY
+ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/jammy/2022-10-05+Y3JhbiwyOjQ1MjYyMTU7RjhCRTFGRTQ
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
