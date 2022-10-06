@@ -26,7 +26,6 @@ RUNDEPS="ca-certificates \
       libgeos-dev \
       libharfbuzz-dev \
       libfribidi-dev \
-      phantomjs \
       curl \
       libgit2-dev"
 

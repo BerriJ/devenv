@@ -64,6 +64,12 @@ COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
 
 RUN fc-cache -f -v
 
+# Install phantomjs
+COPY install_scripts/install_phantomjs.sh /install_scripts/install_phantomjs.sh
+
+RUN chmod +x install_scripts/install_phantomjs.sh &&\
+    install_scripts/install_phantomjs.sh
+
 # Install vcpkg C++ dependency manager
 # RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
 #     && rm -rf /usr/local/vcpkg/.git \
