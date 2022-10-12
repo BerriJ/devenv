@@ -73,7 +73,7 @@
         "r.plot.useHttpgd": true,
         "r.plot.defaults.fullWindowMode": true,
         // Latex
-        // "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+        "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
         "latex-workshop.view.pdf.viewer": "tab",
         "latex-workshop.linting.chktex.enabled": true,
         "latex-workshop.linting.run": "onType",
