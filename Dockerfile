@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:a8fe6fd30333dc60fc5306982a7c51385c2091af1e0ee887166b40a905691fd0
+FROM ubuntu:jammy@sha256:7cfe75438fc77c9d7235ae502bf229b15ca86647ac01c844b272b56326d56184
 
 SHELL ["/bin/bash", "-c"]
 
