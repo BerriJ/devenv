@@ -80,6 +80,7 @@ RCurl
 reactable
 reshape2
 reticulate
+rgenoud
 rhub
 RMariaDB
 rmgarch
