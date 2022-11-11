@@ -13,6 +13,7 @@ data.table
 dbx
 dccpp
 devtools
+DiceKriging
 doParallel
 doSNOW
 energy
