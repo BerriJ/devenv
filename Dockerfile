@@ -113,11 +113,11 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
-ENV R_VERSION=4.2.1
+ENV R_VERSION=4.2.2
 
 # Set RSPM snapshot see:
 # https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.rstudio.com/all/__linux__/jammy/2022-10-05+Y3JhbiwyOjQ1MjYyMTU7RjhCRTFGRTQ
+ENV R_REPOS=https://packagemanager.rstudio.com/cran/__linux__/jammy/2022-12-01
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
