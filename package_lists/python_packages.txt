@@ -24,6 +24,6 @@ pytest
 redis
 requests
 scipy
-sklearn
+scikit-learn
 statsmodels
 uvicorn
