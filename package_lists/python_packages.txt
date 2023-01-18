@@ -23,7 +23,7 @@ pyparsing==2.4.7
 pytest
 redis
 requests
-scipy
 scikit-learn
+scipy
 statsmodels
 uvicorn

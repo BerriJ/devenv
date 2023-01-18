@@ -1,6 +1,7 @@
 abstract
 acronym
 adjustbox
+algorithm2e
 algorithmicx
 algorithms
 animate
@@ -52,6 +53,7 @@ glossaries-english
 glossaries-extra
 hyphen-german
 ieeetran
+ifoddpage
 inconsolata
 koma-script
 latexindent # Indentation
