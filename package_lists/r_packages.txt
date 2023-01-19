@@ -42,7 +42,6 @@ glmnet
 gridExtra
 gt
 Hmisc
-httpgd
 inline
 inspectdf
 kableExtra

@@ -2,4 +2,5 @@ BerriJ/strsplit.fix
 config-i1/legion
 gadenbuie/xaringanExtra@*release
 ManuelHentschel/vscDebugger@*release
+nx10/httpgd
 stenevang/sftp
