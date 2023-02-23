@@ -41,7 +41,7 @@
                 "james-yu.latex-workshop",
                 "znck.grammarly",
                 // Git
-                "eamodio.gitlens",
+                "mhutchie.git-graph",
                 "github.vscode-pull-request-github",
                 // Markdown
                 "yzhang.markdown-all-in-one",
