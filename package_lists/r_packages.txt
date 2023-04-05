@@ -93,7 +93,6 @@ showtext
 skewt
 snakecase
 spelling
-splines2
 stargazer
 tictoc
 tidyverse
