@@ -28,8 +28,7 @@
             // Extensions will get installed automatically
             "extensions": [
                 // C++
-                "ms-vscode.cpptools",
-                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack",
                 // Python
                 "ms-python.vscode-pylance",
                 "ms-python.python",

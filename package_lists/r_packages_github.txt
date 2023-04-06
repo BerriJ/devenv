@@ -5,3 +5,4 @@ ManuelHentschel/vscDebugger@*release
 nx10/httpgd
 stenevang/sftp
 wenjie2wang/splines2
+igraph/rigraph
