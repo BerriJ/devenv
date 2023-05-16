@@ -42,7 +42,6 @@ glmnet
 gridExtra
 gt
 Hmisc
-httpgd
 inline
 inspectdf
 kableExtra
@@ -94,7 +93,6 @@ showtext
 skewt
 snakecase
 spelling
-splines2
 stargazer
 tictoc
 tidyverse
