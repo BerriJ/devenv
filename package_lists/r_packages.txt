@@ -42,12 +42,15 @@ glmnet
 gridExtra
 gt
 Hmisc
+httpgd
+igraph
 inline
 inspectdf
 kableExtra
 knitr
 languageserver
 latex2exp
+legion
 lightgbm
 magick
 MASS
@@ -93,6 +96,7 @@ showtext
 skewt
 snakecase
 spelling
+splines2
 stargazer
 tictoc
 tidyverse
