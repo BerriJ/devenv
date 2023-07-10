@@ -80,6 +80,7 @@ RcppParallel
 RcppProgress
 RCurl
 reactable
+renderthis
 reshape2
 reticulate
 rgenoud
