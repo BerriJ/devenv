@@ -13,6 +13,7 @@ ipykernel
 Jinja2
 kaleido
 matplotlib
+meteostat
 numdifftools
 numpy
 pandas
