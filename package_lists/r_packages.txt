@@ -63,6 +63,7 @@ nnet
 opera
 pagedown
 paletteer
+palmerpenguins
 pander
 pdftools
 pkgdown
