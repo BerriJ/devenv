@@ -27,7 +27,8 @@ RUNDEPS="ca-certificates \
       libharfbuzz-dev \
       libfribidi-dev \
       curl \
-      libgit2-dev"
+      libgit2-dev \
+      pandoc-citeproc"
 
 # Install R amd dependencies
 apt-get install -y --no-install-recommends \
