@@ -32,6 +32,7 @@
                 // Python
                 "ms-python.vscode-pylance",
                 "ms-python.python",
+                "ms-python.black-formatter",
                 "visualstudioexptteam.vscodeintellicode",
                 // R
                 "REditorSupport.r",
