@@ -1,4 +1,5 @@
 BerriJ/strsplit.fix
 gadenbuie/xaringanExtra@*release
+GreenGrassBlueOcean/RefinitivR
 ManuelHentschel/vscDebugger@*release
 stenevang/sftp
