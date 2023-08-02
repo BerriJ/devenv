@@ -69,6 +69,9 @@ install2.r --error --skipinstalled --ncpus 32 \
 installGithub.r \
     $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
 
+# Miniconda for Refinitiv and resp. python dependenies 
+R -e "Refinitiv::install_eikon()"
+
 chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
 rm -r /tmp/*
