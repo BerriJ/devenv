@@ -117,7 +117,7 @@ ENV R_VERSION=4.3.1
 
 # Set RSPM snapshot see:
 # https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-06-14
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-08-28
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
