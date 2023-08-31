@@ -28,6 +28,7 @@ foreach
 forecast
 gamlss.dist
 gamlss.lasso
+GAS
 gdata
 GGally
 gganimate
