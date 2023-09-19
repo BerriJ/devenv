@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:0bced47fffa3361afa981854fcabcd4577cd43cebbb808cea2b1f33a3dd7f508
+FROM ubuntu:jammy@sha256:ec050c32e4a6085b423d36ecd025c0d3ff00c38ab93a3d71a460ff1c44fa6d77
 
 SHELL ["/bin/bash", "-c"]
 
@@ -117,7 +117,7 @@ ENV R_VERSION=4.3.1
 
 # Set RSPM snapshot see:
 # https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-06-14
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-08-28
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
