@@ -39,6 +39,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     zsh \
     gnupg2 \
     nano \
+    gdb \
     ssh-client \
     fontconfig \
     ttf-mscorefonts-installer \
