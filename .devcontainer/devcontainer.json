@@ -34,6 +34,7 @@
                 "ms-python.python",
                 "ms-python.black-formatter",
                 "visualstudioexptteam.vscodeintellicode",
+                "ms-toolsai.jupyter",
                 // R
                 "REditorSupport.r",
                 "rdebugger.r-debugger",

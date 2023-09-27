@@ -96,6 +96,7 @@ texdoc # Package Documentation
 textcase
 textpos
 threeparttable
+threeparttablex
 thumbpdf
 #! To find packages: tlmgr search --global --file "authblk.sty"
 tracklang
@@ -108,4 +109,3 @@ xkeyval
 xpatch
 xstring
 zref
-threeparttablex
