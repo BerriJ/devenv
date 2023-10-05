@@ -117,8 +117,8 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 ENV R_VERSION=4.3.1
 
 # Set RSPM snapshot see:
-# https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-08-28
+# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-04
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
