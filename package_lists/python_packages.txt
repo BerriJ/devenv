@@ -14,6 +14,7 @@ Jinja2
 kaleido
 matplotlib
 meteostat
+nbformat
 numdifftools
 numpy
 pandas

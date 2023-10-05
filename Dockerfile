@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:ec050c32e4a6085b423d36ecd025c0d3ff00c38ab93a3d71a460ff1c44fa6d77
+FROM ubuntu:jammy@sha256:aabed3296a3d45cede1dc866a24476c4d7e093aa806263c27ddaadbdce3c1054
 
 SHELL ["/bin/bash", "-c"]
 
@@ -39,6 +39,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     zsh \
     gnupg2 \
     nano \
+    gdb \
     ssh-client \
     fontconfig \
     ttf-mscorefonts-installer \
@@ -116,8 +117,8 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 ENV R_VERSION=4.3.1
 
 # Set RSPM snapshot see:
-# https://packagemanager.rstudio.com/client/#/repos/1/overview
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-08-28
+# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-04
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt

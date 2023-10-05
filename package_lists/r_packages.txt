@@ -112,5 +112,6 @@ tsrobprep
 VineCopula
 wiqid
 xaringan
+xaringanExtra
 xtable
 zoo
