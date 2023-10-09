@@ -20,6 +20,7 @@ breqn
 cancel
 caption
 chktex # Linting
+chronology
 cleveref
 cm-super
 collectbox
