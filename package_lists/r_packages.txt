@@ -9,6 +9,7 @@ copula
 corrplot
 cowplot
 crayon
+crosstalk
 data.table
 dbx
 dccpp
@@ -43,6 +44,7 @@ glmnet
 gridExtra
 gt
 Hmisc
+htmlwidgets
 httpgd
 igraph
 inline
