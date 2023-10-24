@@ -75,6 +75,7 @@ qgam
 QRM
 Quandl
 quantreg
+r2d3
 randomForest
 Rcpp
 RcppArmadillo
