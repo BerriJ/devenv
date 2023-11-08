@@ -9,6 +9,7 @@ copula
 corrplot
 cowplot
 crayon
+crosstalk
 data.table
 dbx
 dccpp
@@ -43,6 +44,7 @@ glmnet
 gridExtra
 gt
 Hmisc
+htmlwidgets
 httpgd
 igraph
 inline
@@ -75,6 +77,7 @@ qgam
 QRM
 Quandl
 quantreg
+r2d3
 randomForest
 Rcpp
 RcppArmadillo
