@@ -33,6 +33,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     build-essential \
     cmake \
     ccache \
+    libboost-all-dev \
     netbase \
     zip \
     unzip \
