@@ -31,6 +31,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     ca-certificates \
     git \
     build-essential \
+    cmake \
     ccache \
     netbase \
     zip \
@@ -85,7 +86,9 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
 RUN apt-get update &&\
-    apt-get -y --no-install-recommends install python3-pip && \
+    apt-get -y --no-install-recommends install \
+    python3-pip  \
+    python3-dev && \
     # Python packages
     pip3 install -U --no-cache-dir \
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
