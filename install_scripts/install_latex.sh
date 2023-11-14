@@ -32,6 +32,5 @@ echo "save_size  = 7999999" >> /usr/local/texlive/texmf.cnf
 
 rm -r /tmp/*
 rm -r /root/.cpan/build/*
-apt-get autoremove -y
 apt-get autoclean -y
 rm -rf /var/lib/apt/lists/*

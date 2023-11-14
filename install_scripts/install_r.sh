@@ -19,7 +19,6 @@ RUNDEPS="ca-certificates \
       pandoc \
       libmagick++-dev \
       libpoppler-cpp-dev \
-      libarmadillo-dev \
       libudunits2-dev \
       libproj-dev \
       libgdal-dev \
