@@ -53,7 +53,8 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git \
     && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && ldconfig
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
