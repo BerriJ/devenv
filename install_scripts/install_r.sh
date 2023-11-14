@@ -62,8 +62,8 @@ Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
 pip3 install -U --no-cache-dir radian
 
 # R packages on RSPM
-# install2.r --error --skipinstalled --ncpus 32 \
-#     $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
+install2.r --error --skipinstalled --ncpus 32 \
+    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
 
 # R packages on Github
 installGithub.r \
