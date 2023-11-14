@@ -34,7 +34,6 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     cmake \
     ccache \
     libboost-all-dev \
-    libarmadillo-dev \
     netbase \
     zip \
     unzip \
@@ -119,7 +118,7 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
-ENV R_VERSION=4.3.1
+ENV R_VERSION=4.3.2
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
