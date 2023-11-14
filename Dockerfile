@@ -34,6 +34,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     cmake \
     ccache \
     libboost-all-dev \
+    armadillo \
     netbase \
     zip \
     unzip \
