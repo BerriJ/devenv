@@ -54,7 +54,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     && rm -rf /home/$USERNAME/.zsh/pure/.git \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && ldconfig
+    && ldconfig /usr/lib
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
