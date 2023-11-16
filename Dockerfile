@@ -83,6 +83,16 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
 # 
 # ENV PATH="/usr/local/vcpkg:${PATH}"
 
+# Install Python CARMA
+RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
+    && rm -rf /usr/local/carma/.git \
+    && cd /usr/local/carma \
+    && mkdir build \
+    && cd build \
+    && cmake -DCARMA_INSTALL_LIB=ON .. \
+    && cmake --build . --config Release --target install \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/carma
+
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
@@ -139,6 +149,9 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
+
+RUN chown -R $USERNAME /usr/local/lib
+RUN chown -R $USERNAME /usr/local/include
 
 # Switch to non-root user
 USER $USERNAME
