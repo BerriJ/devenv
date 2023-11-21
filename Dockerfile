@@ -31,7 +31,10 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     ca-certificates \
     git \
     build-essential \
+    cmake \
     ccache \
+    libboost-all-dev \
+    libarmadillo-dev \
     netbase \
     zip \
     unzip \
@@ -49,7 +52,6 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     update-locale LANG=en_US.UTF-8 &&\
     git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
     && rm -rf /home/$USERNAME/.zsh/pure/.git \
-    && apt-get autoremove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/*
 
@@ -81,15 +83,26 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
 # 
 # ENV PATH="/usr/local/vcpkg:${PATH}"
 
+# Install Python CARMA
+RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
+    && rm -rf /usr/local/carma/.git \
+    && cd /usr/local/carma \
+    && mkdir build \
+    && cd build \
+    && cmake -DCARMA_INSTALL_LIB=ON .. \
+    && cmake --build . --config Release --target install \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/carma
+
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
 RUN apt-get update &&\
-    apt-get -y --no-install-recommends install python3-pip && \
+    apt-get -y --no-install-recommends install \
+    python3-pip  \
+    python3-dev && \
     # Python packages
     pip3 install -U --no-cache-dir \
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
-    && apt-get autoremove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/*
 
@@ -114,7 +127,7 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
-ENV R_VERSION=4.3.1
+ENV R_VERSION=4.3.2
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
@@ -136,6 +149,9 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
+
+RUN chown -R $USERNAME /usr/local/lib
+RUN chown -R $USERNAME /usr/local/include
 
 # Switch to non-root user
 USER $USERNAME
