@@ -32,6 +32,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     git \
     build-essential \
     cmake \
+    ninja-build \
     ccache \
     libboost-all-dev \
     libarmadillo-dev \
