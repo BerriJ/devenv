@@ -20,7 +20,6 @@ numpy
 pandas
 plotly
 properscoring
-pybind11[global]
 pylint
 pyparsing==2.4.7
 pytest

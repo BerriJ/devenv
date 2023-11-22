@@ -34,8 +34,6 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     cmake \
     ninja-build \
     ccache \
-    libboost-all-dev \
-    libarmadillo-dev \
     gfortran \
     netbase \
     zip \
@@ -81,8 +79,8 @@ RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
     && cd /usr/local/vcpkg \
     && ./bootstrap-vcpkg.sh \
     && ./vcpkg integrate install \
-    # && /usr/local/vcpkg/vcpkg install armadillo \
-    # && /usr/local/vcpkg/vcpkg install pybind11 \
+    && /usr/local/vcpkg/vcpkg install armadillo \
+    && /usr/local/vcpkg/vcpkg install pybind11 \
     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
 
 ENV PATH="/usr/local/vcpkg:${PATH}"
