@@ -36,6 +36,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     ccache \
     libboost-all-dev \
     libarmadillo-dev \
+    gfortran \
     netbase \
     zip \
     unzip \
@@ -75,14 +76,16 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
     install_scripts/install_phantomjs.sh
 
 # Install vcpkg C++ dependency manager
-# RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
-#     && rm -rf /usr/local/vcpkg/.git \
-#     && cd /usr/local/vcpkg \
-#     && ./bootstrap-vcpkg.sh \
-#     && ./vcpkg integrate install \
-#     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
-# 
-# ENV PATH="/usr/local/vcpkg:${PATH}"
+RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+    && rm -rf /usr/local/vcpkg/.git \
+    && cd /usr/local/vcpkg \
+    && ./bootstrap-vcpkg.sh \
+    && ./vcpkg integrate install \
+    # && /usr/local/vcpkg/vcpkg install armadillo \
+    # && /usr/local/vcpkg/vcpkg install pybind11 \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
+
+ENV PATH="/usr/local/vcpkg:${PATH}"
 
 # Install Python CARMA
 RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
@@ -92,7 +95,7 @@ RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
     && cd build \
     && cmake -DCARMA_INSTALL_LIB=ON .. \
     && cmake --build . --config Release --target install \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/carma
+    && rm -rf /usr/local/carma
 
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
