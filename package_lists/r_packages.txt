@@ -49,6 +49,7 @@ httpgd
 igraph
 inline
 inspectdf
+jq
 kableExtra
 knitr
 languageserver
