@@ -45,11 +45,10 @@ gridExtra
 gt
 Hmisc
 htmlwidgets
-httpgd
 igraph
 inline
 inspectdf
-jq
+jqr
 kableExtra
 knitr
 languageserver
@@ -86,7 +85,6 @@ RcppParallel
 RcppProgress
 RCurl
 reactable
-renderthis
 reshape2
 reticulate
 rgenoud
