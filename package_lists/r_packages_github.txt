@@ -1,4 +1,7 @@
 BerriJ/strsplit.fix
 GreenGrassBlueOcean/RefinitivR
+jhelvy/renderthis
 ManuelHentschel/vscDebugger@*release
+nx10/httpgd
+sjp/grConvert
 stenevang/sftp

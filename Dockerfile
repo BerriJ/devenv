@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
+FROM ubuntu:jammy@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b
 
 SHELL ["/bin/bash", "-c"]
 
@@ -32,9 +32,9 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     git \
     build-essential \
     cmake \
+    ninja-build \
     ccache \
-    libboost-all-dev \
-    libarmadillo-dev \
+    gfortran \
     netbase \
     zip \
     unzip \
@@ -74,14 +74,16 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
     install_scripts/install_phantomjs.sh
 
 # Install vcpkg C++ dependency manager
-# RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
-#     && rm -rf /usr/local/vcpkg/.git \
-#     && cd /usr/local/vcpkg \
-#     && ./bootstrap-vcpkg.sh \
-#     && ./vcpkg integrate install \
-#     && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
-# 
-# ENV PATH="/usr/local/vcpkg:${PATH}"
+RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+    && rm -rf /usr/local/vcpkg/.git \
+    && cd /usr/local/vcpkg \
+    && ./bootstrap-vcpkg.sh \
+    && ./vcpkg integrate install \
+    && /usr/local/vcpkg/vcpkg install armadillo \
+    && /usr/local/vcpkg/vcpkg install pybind11 \
+    && chown --recursive $USERNAME:$USERNAME /usr/local/vcpkg
+
+ENV PATH="/usr/local/vcpkg:${PATH}"
 
 # Install Python CARMA
 RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
@@ -91,7 +93,7 @@ RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
     && cd build \
     && cmake -DCARMA_INSTALL_LIB=ON .. \
     && cmake --build . --config Release --target install \
-    && chown --recursive $USERNAME:$USERNAME /usr/local/carma
+    && rm -rf /usr/local/carma
 
 # Install Python
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
@@ -131,7 +133,7 @@ ENV R_VERSION=4.3.2
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-04
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-02-02
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt

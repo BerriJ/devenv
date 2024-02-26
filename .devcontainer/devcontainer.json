@@ -62,7 +62,7 @@
                     "CMAKE_TOOLCHAIN_FILE": "/usr/vcpkg/scripts/buildsystems/vcpkg.cmake"
                 },
                 // Python
-                // "python.dataScience.notebookFileRoot": "${workspaceFolder}/code",
+                "jupyter.notebookFileRoot": "${workspaceFolder}",
                 "python.pythonPath": "/usr/bin/python3",
                 "python.dataScience.interactiveWindowMode": "perFile",
                 "python.dataScience.sendSelectionToInteractiveWindow": true,

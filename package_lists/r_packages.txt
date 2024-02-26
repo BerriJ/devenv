@@ -42,13 +42,14 @@ ggthemes
 gifski
 glmnet
 gridExtra
+grImport2
 gt
 Hmisc
 htmlwidgets
-httpgd
 igraph
 inline
 inspectdf
+jqr
 kableExtra
 knitr
 languageserver
@@ -85,7 +86,6 @@ RcppParallel
 RcppProgress
 RCurl
 reactable
-renderthis
 reshape2
 reticulate
 rgenoud
