@@ -42,6 +42,7 @@ ggthemes
 gifski
 glmnet
 gridExtra
+grImport2
 gt
 Hmisc
 htmlwidgets
