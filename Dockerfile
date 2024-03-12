@@ -67,6 +67,15 @@ COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
 
 RUN fc-cache -f -v
 
+# Install quarto
+ENV QUARTO_VERSION="1.4.551"
+
+COPY install_scripts/install_quarto.sh /install_scripts/install_quarto.sh
+
+RUN chmod +x install_scripts/install_quarto.sh &&\
+    install_scripts/install_quarto.sh
+
+
 # Install phantomjs
 COPY install_scripts/install_phantomjs.sh /install_scripts/install_phantomjs.sh
 
