@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b
+FROM ubuntu:jammy@sha256:f9d633ff6640178c2d0525017174a688e2c1aef28f0a0130b26bd5554491f0da
 
 SHELL ["/bin/bash", "-c"]
 
@@ -66,6 +66,15 @@ COPY .misc/lmroman10-bolditalic-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
 
 RUN fc-cache -f -v
+
+# Install quarto
+ENV QUARTO_VERSION="1.4.551"
+
+COPY install_scripts/install_quarto.sh /install_scripts/install_quarto.sh
+
+RUN chmod +x install_scripts/install_quarto.sh &&\
+    install_scripts/install_quarto.sh
+
 
 # Install phantomjs
 COPY install_scripts/install_phantomjs.sh /install_scripts/install_phantomjs.sh
