@@ -42,6 +42,7 @@ ggthemes
 gifski
 glmnet
 gridExtra
+gridSVG
 grImport2
 gt
 Hmisc
