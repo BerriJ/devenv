@@ -45,6 +45,8 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     gdb \
     ssh-client \
     fontconfig \
+    pkg-config \
+    default-libmysqlclient-dev \
     ttf-mscorefonts-installer \
     locales &&\
     locale-gen en_US.UTF-8 &&\
