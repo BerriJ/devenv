@@ -31,6 +31,7 @@ gamlss.dist
 gamlss.lasso
 GAS
 gdata
+geojsonsf
 GGally
 gganimate
 ggcorrplot
