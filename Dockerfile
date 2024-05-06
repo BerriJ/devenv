@@ -1,4 +1,4 @@
-FROM ubuntu:jammy@sha256:f9d633ff6640178c2d0525017174a688e2c1aef28f0a0130b26bd5554491f0da
+FROM ubuntu:jammy@sha256:6d7b5d3317a71adb5e175640150e44b8b9a9401a7dd394f44840626aff9fa94d
 
 SHELL ["/bin/bash", "-c"]
 
@@ -45,6 +45,8 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     gdb \
     ssh-client \
     fontconfig \
+    pkg-config \
+    default-libmysqlclient-dev \
     ttf-mscorefonts-installer \
     locales &&\
     locale-gen en_US.UTF-8 &&\
@@ -138,11 +140,11 @@ RUN chmod +x install_scripts/install_latex.sh &&\
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
-ENV R_VERSION=4.3.2
+ENV R_VERSION=4.3.3
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-02-02
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-03-21
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
