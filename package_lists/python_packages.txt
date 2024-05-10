@@ -33,4 +33,5 @@ scipy
 sqlalchemy
 statsmodels
 tdqm
+tqdm
 uvicorn
