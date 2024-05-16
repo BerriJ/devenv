@@ -86,7 +86,7 @@ RUN chmod +x install_scripts/install_phantomjs.sh &&\
     install_scripts/install_phantomjs.sh
 
 # Install vcpkg C++ dependency manager
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg /usr/local/vcpkg \
+RUN git clone --depth=1 https://github.com/Microsoft/vcpkg --branch 2024.04.26 /usr/local/vcpkg \
     && rm -rf /usr/local/vcpkg/.git \
     && cd /usr/local/vcpkg \
     && ./bootstrap-vcpkg.sh \
