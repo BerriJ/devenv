@@ -40,6 +40,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     unzip \
     xclip \
     zsh \
+    lftp \
     gnupg2 \
     nano \
     gdb \
