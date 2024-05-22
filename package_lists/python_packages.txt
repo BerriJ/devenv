@@ -33,6 +33,7 @@ scikit-learn
 scipy
 sqlalchemy
 statsmodels
+sstudentt
 tdqm
 tqdm
 uvicorn
