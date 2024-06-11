@@ -32,6 +32,7 @@ redis
 requests
 scikit-learn
 scipy
+scoringrules
 sqlalchemy
 sstudentt
 statsmodels
