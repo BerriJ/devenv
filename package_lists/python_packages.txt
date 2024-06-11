@@ -1,6 +1,7 @@
 aiofiles
 autopep8
 bspline
+build
 celery
 fastapi
 flower
@@ -33,6 +34,7 @@ requests
 scikit-learn
 scipy
 scoringrules
+setuptools
 sqlalchemy
 sstudentt
 statsmodels
