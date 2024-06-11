@@ -113,7 +113,8 @@ COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 RUN apt-get update &&\
     apt-get -y --no-install-recommends install \
     python3-pip  \
-    python3-dev && \
+    python3-dev \
+    python3-venv && \
     # Python packages
     pip3 install -U --no-cache-dir \
     $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
