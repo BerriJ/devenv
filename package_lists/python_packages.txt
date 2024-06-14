@@ -1,5 +1,6 @@
 aiofiles
 autopep8
+black
 bspline
 build
 celery
@@ -31,6 +32,7 @@ pyparsing==2.4.7
 pytest
 redis
 requests
+ruff
 scikit-learn
 scipy
 scoringrules
