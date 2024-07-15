@@ -57,6 +57,8 @@ ieeetran
 ifoddpage
 inconsolata
 koma-script
+l3backend
+l3backend-dev
 latexindent # Indentation
 latexmk
 latex-tools-dev
@@ -99,9 +101,11 @@ textpos
 threeparttable
 threeparttablex
 thumbpdf
+titlesec
 #! To find packages: tlmgr search --global --file "authblk.sty"
 tracklang
 ulem
+upquote
 varwidth
 was
 wrapfig
