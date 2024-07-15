@@ -72,12 +72,12 @@ RUN fc-cache -f -v
 
 # Install quarto
 ENV QUARTO_VERSION="1.4.551"
-
 COPY install_scripts/install_quarto.sh /install_scripts/install_quarto.sh
-
 RUN chmod +x install_scripts/install_quarto.sh &&\
     install_scripts/install_quarto.sh
 
+RUN wget https://github.com/jgm/pandoc/releases/download/3.2.1/pandoc-3.2.1-1-amd64.deb &&\
+    dpkg -i pandoc-3.2.1-1-amd64.deb
 
 # Install phantomjs
 COPY install_scripts/install_phantomjs.sh /install_scripts/install_phantomjs.sh

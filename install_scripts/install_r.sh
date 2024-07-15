@@ -17,7 +17,6 @@ RUNDEPS="ca-certificates \
       vim-tiny \
       wget \
       dirmngr \
-      pandoc \
       libmagick++-dev \
       libpoppler-cpp-dev \
       libudunits2-dev \

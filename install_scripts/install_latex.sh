@@ -3,8 +3,7 @@
 # Install build dependencies
 apt-get update
 apt-get install -y --no-install-recommends \
-wget \
-pandoc
+wget 
 
 # Install Latex
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
