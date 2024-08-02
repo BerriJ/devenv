@@ -76,8 +76,8 @@ COPY install_scripts/install_quarto.sh /install_scripts/install_quarto.sh
 RUN chmod +x install_scripts/install_quarto.sh &&\
   install_scripts/install_quarto.sh
 
-RUN wget https://github.com/jgm/pandoc/releases/download/3.3/pandoc-3.3-1-amd64.deb &&\
-  dpkg -i pandoc-3.3-1-amd64.deb
+RUN wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/pandoc-3.1.6.2-1-amd64.deb &&\
+  dpkg -i pandoc-3.1.6.2-1-amd64.deb
 
 # Install phantomjs
 COPY install_scripts/install_phantomjs.sh /install_scripts/install_phantomjs.sh
