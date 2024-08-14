@@ -7,6 +7,7 @@ cli
 conflicted
 copula
 corrplot
+covr
 cowplot
 crayon
 crosstalk
@@ -17,6 +18,7 @@ devtools
 DiceKriging
 doParallel
 doSNOW
+DT
 energy
 eurostat
 evir
@@ -47,6 +49,7 @@ gridSVG
 grImport2
 gt
 Hmisc
+htmltools
 htmlwidgets
 igraph
 inline

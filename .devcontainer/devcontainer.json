@@ -51,7 +51,9 @@
                 // Live Share
                 "ms-vsliveshare.vsliveshare",
                 // Copilot
-                "GitHub.copilot"
+                "GitHub.copilot",
+                // Quarto
+                "quarto.quarto"
             ],
             // Set *default* container specific settings
             // Important for radian and latex
