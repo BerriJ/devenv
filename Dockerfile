@@ -146,7 +146,7 @@ ENV R_VERSION=4.4.1
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-08-31
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-09-18
 
 COPY install_scripts/install_r.sh /install_scripts/install_r.sh
 COPY package_lists/r_packages.txt /package_lists/r_packages.txt
