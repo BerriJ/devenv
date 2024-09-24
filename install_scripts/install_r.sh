@@ -63,11 +63,11 @@ pip3 install -U --no-cache-dir radian
 
 # R packages on RSPM
 install2.r --error --skipinstalled --ncpus 32 \
-    $(grep -o '^[^#]*' package_lists/r_packages.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' tmp/r_packages.txt | tr '\n' ' ')
 
 # R packages on Github
 installGithub.r \
-    $(grep -o '^[^#]*' package_lists/r_packages_github.txt | tr '\n' ' ')
+    $(grep -o '^[^#]*' tmp/r_packages_github.txt | tr '\n' ' ')
 
 # Miniconda for Refinitiv and resp. python dependenies 
 R -e "Refinitiv::install_eikon()"

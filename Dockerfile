@@ -125,17 +125,17 @@ RUN apt-get update &&\
 ENV PATH="/home/vscode/.local/bin:${PATH}"
 
 # Install Latex
-COPY install_scripts/install_latex.sh /install_scripts/install_latex.sh
-COPY package_lists/latex_packages.txt /package_lists/latex_packages.txt
+COPY install_scripts/install_latex.sh /tmp/install_latex.sh
+COPY package_lists/latex_packages.txt /tmp/latex_packages.txt
 
-RUN chmod +x install_scripts/install_latex.sh &&\
-  install_scripts/install_latex.sh \
+RUN chmod +x tmp/install_latex.sh &&\
+  tmp/install_latex.sh \
   && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
   && tlmgr option -- autobackup 0 \
   && tlmgr option -- docfiles 0 \
   && tlmgr option -- srcfiles 0 \
   && tlmgr install \
-  $(grep -o '^[^#]*' package_lists/latex_packages.txt | tr '\n' ' ') \
+  $(grep -o '^[^#]*' tmp/latex_packages.txt | tr '\n' ' ') \
   && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
 # Set Latex Path
@@ -148,12 +148,12 @@ ENV R_VERSION=4.4.1
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
 ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-09-18
 
-COPY install_scripts/install_r.sh /install_scripts/install_r.sh
-COPY package_lists/r_packages.txt /package_lists/r_packages.txt
-COPY package_lists/r_packages_github.txt /package_lists/r_packages_github.txt
+COPY install_scripts/install_r.sh /tmp/install_r.sh
+COPY package_lists/r_packages.txt /tmp/r_packages.txt
+COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 
-RUN chmod +x install_scripts/install_r.sh &&\
-  install_scripts/install_r.sh
+RUN chmod +x tmp/install_r.sh &&\
+  tmp/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 

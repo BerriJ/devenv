@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'dev'
+  schedule:
+    - cron: '35 * * * *'
 
 env:
   IMAGE_NAME: devenv
