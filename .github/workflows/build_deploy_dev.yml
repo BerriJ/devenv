@@ -1,11 +1,8 @@
 name: Build and Deploy Dev
 
 on:
-  push:
-    branches:
-      - 'dev'
   schedule:
-    - cron: '35 * * * *'
+    - cron: '5 4 * * *'
 
 env:
   IMAGE_NAME: devenv
