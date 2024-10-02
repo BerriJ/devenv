@@ -1,9 +1,7 @@
 #!/bin/bash
 
-echo "deb http://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list
-gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
-apt-get update
+echo "deb http://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" >> /etc/apt/sources.list
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 
 apt-get update
 
