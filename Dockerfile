@@ -128,14 +128,14 @@ ENV PATH="/home/vscode/.local/bin:${PATH}"
 COPY install_scripts/install_latex.sh /tmp/install_latex.sh
 COPY package_lists/latex_packages.txt /tmp/latex_packages.txt
 
-RUN chmod +x tmp/install_latex.sh &&\
-  tmp/install_latex.sh \
+RUN chmod +x /tmp/install_latex.sh &&\
+  /tmp/install_latex.sh \
   && export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}" \
   && tlmgr option -- autobackup 0 \
   && tlmgr option -- docfiles 0 \
   && tlmgr option -- srcfiles 0 \
   && tlmgr install \
-  $(grep -o '^[^#]*' tmp/latex_packages.txt | tr '\n' ' ') \
+  $(grep -o '^[^#]*' /tmp/latex_packages.txt | tr '\n' ' ') \
   && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
 # Set Latex Path
@@ -152,8 +152,8 @@ COPY install_scripts/install_r.sh /tmp/install_r.sh
 COPY package_lists/r_packages.txt /tmp/r_packages.txt
 COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 
-RUN chmod +x tmp/install_r.sh &&\
-  tmp/install_r.sh
+RUN chmod +x /tmp/install_r.sh &&\
+  /tmp/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 
