@@ -141,7 +141,7 @@ RUN chmod +x /tmp/install_latex.sh &&\
 
 # Set Latex Paths
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
-ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Install R
 ENV R_VERSION=4.4.1
