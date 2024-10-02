@@ -6,17 +6,13 @@ SHELL ["/bin/bash", "-c"]
 ENV DISPLAY=:0 \
   TZ=Europe/Berlin
 
-ARG USERNAME=vscode
+ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Rename ubuntu user to $USERNAME
-RUN usermod -l $USERNAME ubuntu \
-  # Add new group called $USERNAME
-  && groupadd $USERNAME \
-  # Add new user $USERNAME to the groups $USERNAME and staff
-  && usermod -a -G staff,$USERNAME $USERNAME
+# Add ubuntu user to ubuntu and staff groups
+RUN usermod -a -G staff,$USERNAME $USERNAME
 
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
