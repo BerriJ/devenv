@@ -165,6 +165,8 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
 
+ENV PATH="/root/.local/bin:${PATH}"
+RUN chown -R $USERNAME /root/.local/bin
 RUN chown -R $USERNAME /usr/local/lib
 RUN chown -R $USERNAME /usr/local/include
 
