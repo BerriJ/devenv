@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "deb http://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" >> /etc/apt/sources.list
-wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 
 apt-get update
 
