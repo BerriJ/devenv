@@ -3,6 +3,7 @@ name: Build and Deploy Dev
 on:
   schedule:
     - cron: '5 4 * * *'
+  workflow_dispatch:
 
 env:
   IMAGE_NAME: devenv
