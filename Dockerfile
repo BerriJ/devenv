@@ -35,6 +35,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   ccache \
   gfortran \
   netbase \
+  cargo \
   zip \
   unzip \
   xclip \
@@ -121,7 +122,7 @@ RUN apt-get update &&\
   && rm -rf /var/lib/apt/lists/*
 
 # Set PATH for user installed python packages
-ENV PATH="/home/vscode/.local/bin:${PATH}"
+ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
 
 # Install Latex
 COPY install_scripts/install_latex.sh /tmp/install_latex.sh
@@ -135,17 +136,19 @@ RUN chmod +x /tmp/install_latex.sh &&\
   && tlmgr option -- srcfiles 0 \
   && tlmgr install \
   $(grep -o '^[^#]*' /tmp/latex_packages.txt | tr '\n' ' ') \
-  && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
+  && chown --recursive $USERNAME:$USERNAME /usr/local/texlive \
+  && cargo install tex-fmt
 
-# Set Latex Path
+# Set Latex Paths
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
+ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
 
 # Install R
 ENV R_VERSION=4.4.1
 
 # Set RSPM snapshot see:
 # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2024-10-01&distribution=ubuntu-22.04
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-10-01
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/noble/2024-10-01
 
 COPY install_scripts/install_r.sh /tmp/install_r.sh
 COPY package_lists/r_packages.txt /tmp/r_packages.txt
