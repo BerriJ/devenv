@@ -74,7 +74,6 @@ R -e "Refinitiv::install_eikon()"
 
 chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
-rm -r /tmp/*
 apt-get autoclean -y
 rm -rf /var/lib/apt/lists/*
 
