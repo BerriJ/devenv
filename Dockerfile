@@ -145,34 +145,34 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 ENV R_VERSION=4.4.1
 
 # Set RSPM snapshot see:
-  # https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2024-10-01&distribution=ubuntu-22.04
-  ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/noble/2024-10-01
-  
-  COPY install_scripts/install_r.sh /tmp/install_r.sh
-  COPY package_lists/r_packages.txt /tmp/r_packages.txt
-  COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
-  
-  RUN chmod +x /tmp/install_r.sh &&\
-  /tmp/install_r.sh
-  
-  COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
-  
-  COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
-  
-  RUN mkdir /home/$USERNAME/.R && chown -R $USERNAME /home/$USERNAME/.R
-  COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
-  
-  RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
-  COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
-  
-  RUN chown -R $USERNAME /usr/local/lib
-  RUN chown -R $USERNAME /usr/local/include
-  
-  # Switch to non-root user
-  USER $USERNAME
-  
-  RUN cargo install tex-fmt
-  ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
+# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2024-10-01&distribution=ubuntu-22.04
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/noble/2024-10-01
+
+COPY install_scripts/install_r.sh /tmp/install_r.sh
+COPY package_lists/r_packages.txt /tmp/r_packages.txt
+COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
+
+RUN chmod +x /tmp/install_r.sh &&\
+/tmp/install_r.sh
+
+COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
+
+COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
+
+RUN mkdir /home/$USERNAME/.R && chown -R $USERNAME /home/$USERNAME/.R
+COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
+
+RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
+COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
+
+RUN chown -R $USERNAME /usr/local/lib
+RUN chown -R $USERNAME /usr/local/include
+
+# Switch to non-root user
+USER $USERNAME
+
+RUN cargo install tex-fmt
+ENV PATH="/home/ubuntu/.cargo/bin:${PATH}"
   
 # Start zsh
 CMD [ "zsh" ]
