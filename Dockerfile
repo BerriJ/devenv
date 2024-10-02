@@ -1,4 +1,5 @@
-FROM ubuntu:jammy@sha256:58b87898e82351c6cf9cf5b9f3c20257bb9e2dcf33af051e12ce532d7f94e3fe
+FROM ubuntu:noble@sha256:b359f1067efa76f37863778f7b6d0e8d911e3ee8efa807ad01fbf5dc1ef9006b
+
 
 SHELL ["/bin/bash", "-c"]
 
@@ -10,10 +11,12 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Add non root user
-RUN groupadd --gid $USER_GID $USERNAME \
-  && useradd -rm -d /home/$USERNAME -s /bin/bash -g root --uid $USER_UID --gid $USER_GID $USERNAME \
-  && addgroup $USERNAME staff
+# Rename ubuntu user to $USERNAME
+RUN usermod -l $USERNAME ubuntu \
+  # Add new group called $USERNAME
+  && groupadd $USERNAME \
+  # Add new user $USERNAME to the groups $USERNAME and staff
+  && usermod -a -G staff,$USERNAME $USERNAME
 
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
@@ -116,7 +119,7 @@ RUN apt-get update &&\
   python3-dev \
   python3-venv && \
   # Python packages
-  pip3 install -U --no-cache-dir \
+  pip3 install -U --no-cache-dir --break-system-packages \
   $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
@@ -145,7 +148,7 @@ ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 ENV R_VERSION=4.4.1
 
 # Set RSPM snapshot see:
-# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
+# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2024-10-01&distribution=ubuntu-22.04
 ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-10-01
 
 COPY install_scripts/install_r.sh /tmp/install_r.sh
