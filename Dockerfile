@@ -61,7 +61,6 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   && rm -rf /home/$USERNAME/.zsh/pure/.git \
   && apt-get autoclean -y \
   && apt-get clean \
-  && apt-get autoclean \
   && rm -rf /var/cache/* \
   && rm -rf /tmp/* \
   && rm -rf /var/tmp/* \

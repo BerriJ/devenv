@@ -74,6 +74,9 @@ installGithub.r \
 
 chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
 
-# apt-get autoclean -y
-# rm -rf /var/lib/apt/lists/*
-
+apt-get autoclean -y 
+apt-get clean 
+rm -rf /var/cache/* 
+rm -rf /tmp/* 
+rm -rf /var/tmp/* 
+rm -rf /var/lib/apt/lists/*
