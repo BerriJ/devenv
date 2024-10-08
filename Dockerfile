@@ -6,6 +6,7 @@ SHELL ["/bin/bash", "-c"]
 ENV DISPLAY=:0 \
   TZ=Europe/Berlin
 
+ARG VIRTUAL_ENV=/opt/venv
 ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -47,6 +48,9 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   ssh-client \
   fontconfig \
   pkg-config \
+  python3-pip  \
+  python3-dev \
+  python3-venv \
   default-libmysqlclient-dev \
   ttf-mscorefonts-installer \
   locales &&\
@@ -56,6 +60,11 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
   && rm -rf /home/$USERNAME/.zsh/pure/.git \
   && apt-get autoclean -y \
+  && apt-get clean \
+  && apt-get autoclean \
+  && rm -rf /var/cache/* \
+  && rm -rf /tmp/* \
+  && rm -rf /var/tmp/* \
   && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=en_US.UTF-8 \
@@ -108,21 +117,15 @@ RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
   && rm -rf /usr/local/carma
 
 # Install Python
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
-RUN apt-get update &&\
-  apt-get -y --no-install-recommends install \
-  python3-pip  \
-  python3-dev \
-  python3-venv && \
-  # Python packages
-  pip3 install -U --no-cache-dir --break-system-packages \
+RUN pip install --upgrade pip \
+  && pip3 install \
   $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
-
-# Set PATH for user installed python packages
-ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
 
 # Install Latex
 COPY install_scripts/install_latex.sh /tmp/install_latex.sh
@@ -153,7 +156,7 @@ COPY package_lists/r_packages.txt /tmp/r_packages.txt
 COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 
 RUN chmod +x /tmp/install_r.sh &&\
-/tmp/install_r.sh
+  /tmp/install_r.sh
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 
@@ -165,16 +168,13 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
 
-ENV PATH="/root/.local/bin:${PATH}"
-RUN chown -R $USERNAME /root/.local/bin
-RUN chown -R $USERNAME /usr/local/lib
-RUN chown -R $USERNAME /usr/local/include
+RUN chown -R $USERNAME /usr/local
 
 # Switch to non-root user
 USER $USERNAME
 
 RUN cargo install tex-fmt
 ENV PATH="/home/ubuntu/.cargo/bin:${PATH}"
-  
+
 # Start zsh
 CMD [ "zsh" ]

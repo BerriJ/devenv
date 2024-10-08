@@ -51,6 +51,7 @@ gt
 Hmisc
 htmltools
 htmlwidgets
+httpgd
 igraph
 inline
 inspectdf
