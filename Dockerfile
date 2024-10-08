@@ -75,7 +75,6 @@ COPY .misc/lmroman10-regular-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-italic-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-bolditalic-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
-
 RUN fc-cache -f -v
 
 # Install quarto
@@ -157,6 +156,8 @@ COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 RUN chmod +x /tmp/install_r.sh &&\
   /tmp/install_r.sh
 
+RUN chown -R $USERNAME /usr/local
+
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 
 COPY --chown=$USERNAME .misc/.Rprofile /home/$USERNAME/.
@@ -166,8 +167,6 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
-
-RUN chown -R $USERNAME /usr/local
 
 # Switch to non-root user
 USER $USERNAME
