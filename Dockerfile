@@ -6,8 +6,8 @@ SHELL ["/bin/bash", "-c"]
 ENV DISPLAY=:0 \
   TZ=Europe/Berlin
 
-ARG VIRTUAL_ENV=/opt/venv
 ARG USERNAME=ubuntu
+ARG VIRTUAL_ENV=/home/$USERNAME/python/venv
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG DEBIAN_FRONTEND=noninteractive

@@ -30,6 +30,7 @@ fontawesome
 foreach
 forecast
 gamlss.dist
+MixGHD
 gamlss.lasso
 GAS
 gdata
