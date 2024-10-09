@@ -114,17 +114,6 @@ RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
   && cmake --build . --config Release --target install \
   && rm -rf /usr/local/carma
 
-# Install Python
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-COPY package_lists/python_packages.txt /package_lists/python_packages.txt
-
-RUN pip install --upgrade pip \
-  && pip3 install \
-  $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
-  && apt-get autoclean -y \
-  && rm -rf /var/lib/apt/lists/*
-
 # Install Latex
 COPY install_scripts/install_latex.sh /tmp/install_latex.sh
 COPY package_lists/latex_packages.txt /tmp/latex_packages.txt
@@ -170,6 +159,15 @@ COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
 
 # Switch to non-root user
 USER $USERNAME
+
+# Install Python Packages
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+COPY package_lists/python_packages.txt /package_lists/python_packages.txt
+
+RUN pip install --upgrade pip \
+  && pip3 install \
+  $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
 RUN cargo install tex-fmt
 ENV PATH="/home/ubuntu/.cargo/bin:${PATH}"
