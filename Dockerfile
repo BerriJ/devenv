@@ -7,6 +7,7 @@ ENV DISPLAY=:0 \
   TZ=Europe/Berlin
 
 ARG USERNAME=ubuntu
+ENV R_LIBS_USER=/home/$USERNAME/R/library
 ARG VIRTUAL_ENV=/home/$USERNAME/python/venv
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -18,6 +19,7 @@ RUN usermod -a -G staff,$USERNAME $USERNAME
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
   /home/$USERNAME/.vscode-server-insiders/extensions \
+  /home/$USERNAME/R/library \
   workspaces \
   && chown -R $USERNAME \
   /home/$USERNAME/.vscode-server \
@@ -145,7 +147,8 @@ COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 RUN chmod +x /tmp/install_r.sh &&\
   /tmp/install_r.sh
 
-RUN chown -R $USERNAME /usr/local
+RUN chown -R $USERNAME /usr/local/lib
+RUN chown -R $USERNAME /usr/local/include
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 
@@ -166,7 +169,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY package_lists/python_packages.txt /package_lists/python_packages.txt
 
 RUN pip install --upgrade pip \
-  && pip3 install \
+  && pip --no-cache-dir install \
   $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
 RUN cargo install tex-fmt
