@@ -72,7 +72,7 @@ installGithub.r \
 # Miniconda for Refinitiv and resp. python dependenies 
 # R -e "Refinitiv::install_eikon()"
 
-chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+chown --recursive $USERNAME:$USERNAME /home/$USERNAME/R/library
 
 apt-get autoclean -y 
 apt-get clean 
