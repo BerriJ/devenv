@@ -30,6 +30,7 @@ fontawesome
 foreach
 forecast
 gamlss.dist
+MixGHD
 gamlss.lasso
 GAS
 gdata
@@ -51,6 +52,7 @@ gt
 Hmisc
 htmltools
 htmlwidgets
+httpgd
 igraph
 inline
 inspectdf

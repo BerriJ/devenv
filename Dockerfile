@@ -1,23 +1,25 @@
-FROM ubuntu:jammy@sha256:58b87898e82351c6cf9cf5b9f3c20257bb9e2dcf33af051e12ce532d7f94e3fe
+FROM ubuntu:noble@sha256:b359f1067efa76f37863778f7b6d0e8d911e3ee8efa807ad01fbf5dc1ef9006b
+
 
 SHELL ["/bin/bash", "-c"]
 
 ENV DISPLAY=:0 \
   TZ=Europe/Berlin
 
-ARG USERNAME=vscode
+ARG USERNAME=ubuntu
+ENV R_LIBS_USER=/home/$USERNAME/R/library
+ARG VIRTUAL_ENV=/home/$USERNAME/python/venv
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Add non root user
-RUN groupadd --gid $USER_GID $USERNAME \
-  && useradd -rm -d /home/$USERNAME -s /bin/bash -g root --uid $USER_UID --gid $USER_GID $USERNAME \
-  && addgroup $USERNAME staff
+# Add ubuntu user to ubuntu and staff groups
+RUN usermod -a -G staff,$USERNAME $USERNAME
 
 # Create folders to mount extensions
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
   /home/$USERNAME/.vscode-server-insiders/extensions \
+  /home/$USERNAME/R/library \
   workspaces \
   && chown -R $USERNAME \
   /home/$USERNAME/.vscode-server \
@@ -36,6 +38,7 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   ccache \
   gfortran \
   netbase \
+  cargo \
   zip \
   unzip \
   xclip \
@@ -47,6 +50,9 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   ssh-client \
   fontconfig \
   pkg-config \
+  python3-pip  \
+  python3-dev \
+  python3-venv \
   default-libmysqlclient-dev \
   ttf-mscorefonts-installer \
   locales &&\
@@ -56,6 +62,10 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
   git clone --depth=1 https://github.com/sindresorhus/pure.git /home/$USERNAME/.zsh/pure \
   && rm -rf /home/$USERNAME/.zsh/pure/.git \
   && apt-get autoclean -y \
+  && apt-get clean \
+  && rm -rf /var/cache/* \
+  && rm -rf /tmp/* \
+  && rm -rf /var/tmp/* \
   && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=en_US.UTF-8 \
@@ -67,7 +77,6 @@ COPY .misc/lmroman10-regular-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-italic-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-bolditalic-webfont.ttf /usr/share/fonts/truetype/.
 COPY .misc/lmroman10-bold-webfont.ttf /usr/share/fonts/truetype/.
-
 RUN fc-cache -f -v
 
 # Install quarto
@@ -107,23 +116,6 @@ RUN git clone --depth=1 https://github.com/RUrlus/carma.git /usr/local/carma \
   && cmake --build . --config Release --target install \
   && rm -rf /usr/local/carma
 
-# Install Python
-COPY package_lists/python_packages.txt /package_lists/python_packages.txt
-
-RUN apt-get update &&\
-  apt-get -y --no-install-recommends install \
-  python3-pip  \
-  python3-dev \
-  python3-venv && \
-  # Python packages
-  pip3 install -U --no-cache-dir \
-  $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')  \
-  && apt-get autoclean -y \
-  && rm -rf /var/lib/apt/lists/*
-
-# Set PATH for user installed python packages
-ENV PATH="/home/vscode/.local/bin:${PATH}"
-
 # Install Latex
 COPY install_scripts/install_latex.sh /tmp/install_latex.sh
 COPY package_lists/latex_packages.txt /tmp/latex_packages.txt
@@ -138,15 +130,15 @@ RUN chmod +x /tmp/install_latex.sh &&\
   $(grep -o '^[^#]*' /tmp/latex_packages.txt | tr '\n' ' ') \
   && chown --recursive $USERNAME:$USERNAME /usr/local/texlive
 
-# Set Latex Path
+# Set Latex Paths
 ENV PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
 
 # Install R
 ENV R_VERSION=4.4.1
 
 # Set RSPM snapshot see:
-# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2023-10-04&distribution=ubuntu-22.04
-ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/jammy/2024-10-01
+# https://packagemanager.posit.co/client/#/repos/cran/setup?r_environment=other&snapshot=2024-10-01&distribution=ubuntu-22.04
+ENV R_REPOS=https://packagemanager.posit.co/cran/__linux__/noble/2024-10-01
 
 COPY install_scripts/install_r.sh /tmp/install_r.sh
 COPY package_lists/r_packages.txt /tmp/r_packages.txt
@@ -154,6 +146,9 @@ COPY package_lists/r_packages_github.txt /tmp/r_packages_github.txt
 
 RUN chmod +x /tmp/install_r.sh &&\
   /tmp/install_r.sh
+
+RUN chown -R $USERNAME /usr/local/lib
+RUN chown -R $USERNAME /usr/local/include
 
 COPY --chown=$USERNAME .misc/.zshrc /home/$USERNAME/.
 
@@ -165,11 +160,20 @@ COPY --chown=$USERNAME .misc/Makevars /home/$USERNAME/.R/.
 RUN mkdir /home/$USERNAME/.ccache && chown -R $USERNAME /home/$USERNAME/.ccache
 COPY --chown=$USERNAME .misc/ccache.conf /home/$USERNAME/.ccache/.
 
-RUN chown -R $USERNAME /usr/local/lib
-RUN chown -R $USERNAME /usr/local/include
-
 # Switch to non-root user
 USER $USERNAME
+
+# Install Python Packages
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+COPY package_lists/python_packages.txt /package_lists/python_packages.txt
+
+RUN pip install --upgrade pip \
+  && pip --no-cache-dir install \
+  $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
+
+RUN cargo install tex-fmt
+ENV PATH="/home/ubuntu/.cargo/bin:${PATH}"
 
 # Start zsh
 CMD [ "zsh" ]

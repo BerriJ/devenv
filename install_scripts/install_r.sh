@@ -1,9 +1,14 @@
 #!/bin/bash
 
-echo "deb http://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list
-gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
-apt-get update
+apt update -qq
+# install two helper packages we need
+apt install -y --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.X repo from CRAN
+add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/"
 
 apt-get update
 
@@ -16,7 +21,6 @@ RUNDEPS="ca-certificates \
       libxml2-dev \
       vim-tiny \
       wget \
-      dirmngr \
       libmagick++-dev \
       libpoppler-cpp-dev \
       libudunits2-dev \
@@ -28,7 +32,6 @@ RUNDEPS="ca-certificates \
       libfribidi-dev \
       curl \
       libgit2-dev \
-      pandoc-citeproc \
       qpdf"
 
 # Install R amd dependencies
@@ -58,9 +61,6 @@ echo  'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRv
 # Install docopt which is used by littler to install packages
 Rscript -e "install.packages('docopt', repos= '$R_REPOS')"
 
-# Install alternative r console
-pip3 install -U --no-cache-dir radian
-
 # R packages on RSPM
 install2.r --error --skipinstalled --ncpus 32 \
     $(grep -o '^[^#]*' tmp/r_packages.txt | tr '\n' ' ')
@@ -70,10 +70,13 @@ installGithub.r \
     $(grep -o '^[^#]*' tmp/r_packages_github.txt | tr '\n' ' ')
 
 # Miniconda for Refinitiv and resp. python dependenies 
-R -e "Refinitiv::install_eikon()"
+# R -e "Refinitiv::install_eikon()"
 
-chown --recursive $USERNAME:$USERNAME /usr/local/lib/R/site-library
+chown --recursive $USERNAME:$USERNAME /home/$USERNAME/R/library
 
-apt-get autoclean -y
+apt-get autoclean -y 
+apt-get clean 
+rm -rf /var/cache/* 
+rm -rf /tmp/* 
+rm -rf /var/tmp/* 
 rm -rf /var/lib/apt/lists/*
-
