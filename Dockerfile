@@ -3,16 +3,16 @@ FROM ubuntu:noble@sha256:b359f1067efa76f37863778f7b6d0e8d911e3ee8efa807ad01fbf5d
 
 SHELL ["/bin/bash", "-c"]
 
-ENV DISPLAY=:0 \
-  TZ=Europe/Berlin \
-  container=TRUE
-
 ARG USERNAME=ubuntu
-ENV R_LIBS_USER=/home/$USERNAME/R/library
 ARG VIRTUAL_ENV=/home/$USERNAME/python/venv
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG DEBIAN_FRONTEND=noninteractive
+
+ENV DISPLAY=:0 \
+  TZ=Europe/Berlin \
+  container=TRUE \
+  R_LIBS_USER=/home/$USERNAME/R/library
 
 # Add ubuntu user to ubuntu and staff groups
 RUN usermod -a -G staff,$USERNAME $USERNAME
