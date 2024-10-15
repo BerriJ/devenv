@@ -8,13 +8,13 @@ Obtain the latest stable image with:
 
 This Ubuntu-based docker image intends to deliver a fully isolated dev environment for Python, R and Latex. Extend it as needed by adding or removing components.
 
-It is intended that you use this image with a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers). VS Code will automatically install all required extensions for code formatting, linting, execution, and debugging.
+It is intended that you use this image with a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers). VS Code will automatically install all required extensions for code formatting, linting, execution, and debugging. A `.devcontainer.json` file is included in [this](https://github.com/BerriJ/devenv_devcontainer.json) repository.
 
 ## Contents
 
-- R 4.X.X
-- Texlive 2022
-- Python 3.8.X
+- R 4.4.X
+- Texlive 2024
+- Python 3.12.X
 
 # Setup using VS-Code
 
