@@ -174,7 +174,10 @@ RUN pip install --upgrade pip \
   $(grep -o '^[^#]*' package_lists/python_packages.txt | tr '\n' ' ')
 
 RUN cargo install tex-fmt
-ENV PATH="/home/ubuntu/.cargo/bin:${PATH}"
+ENV PATH="/home/$USERNAME/.cargo/bin:${PATH}"
+
+RUN mkdir -p /home/$USERNAME/.ssh
+RUN ssh-keyscan -t rsa sftp-transparency.entsoe.eu >> /home/$USERNAME/.ssh/known_hosts
 
 # Start zsh
 CMD [ "zsh" ]
