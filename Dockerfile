@@ -11,7 +11,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DISPLAY=:0 \
   TZ=Europe/Berlin \
-  container=TRUE \
+  devenv=TRUE \
   R_LIBS_USER=/home/$USERNAME/R/library
 
 # Add ubuntu user to ubuntu and staff groups
