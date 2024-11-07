@@ -30,7 +30,6 @@ fontawesome
 foreach
 forecast
 gamlss.dist
-MixGHD
 gamlss.lasso
 GAS
 gdata
@@ -68,6 +67,7 @@ MASS
 Metrics
 mgcViz
 microbenchmark
+MixGHD
 mlrMBO
 neuralnet
 nnet
