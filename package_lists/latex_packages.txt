@@ -5,6 +5,7 @@ algorithm2e
 algorithmicx
 algorithms
 animate
+appendix
 appendixnumberbeamer
 arydshln
 attachfile
