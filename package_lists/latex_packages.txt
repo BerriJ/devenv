@@ -20,6 +20,7 @@ booktabs
 breqn
 cancel
 caption
+chapterfolder
 chktex # Linting
 chronology
 cleveref
